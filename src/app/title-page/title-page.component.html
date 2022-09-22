@@ -1,0 +1,25 @@
+<app-bg-img [imgSrc]="'../../assets/images/Copy of DSC00501.jpg'"></app-bg-img>
+<ng-container>
+  <div class="container">
+    <h1 class="title">
+      charlie palm
+    </h1>
+    <app-social-links></app-social-links>
+    <div class='subtitle'>
+      multi-instrumentalist | producer | composer | band-leader | teacher
+    </div>
+    <table class="widgets">
+      <tr>
+        <td class="hover back-text-hover" (click)="navigate(state.booking)">
+          booking
+        </td>
+        <td class="hover back-text-hover" (click)="navigate(state.shows)">
+          shows
+        </td>
+        <td class="hover back-text-hover" (click)="navigate(state.bio)">
+          bio
+        </td>
+      </tr>
+    </table>
+  </div>
+</ng-container>

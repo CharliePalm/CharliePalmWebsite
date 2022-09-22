@@ -1,0 +1,64 @@
+<app-bg-img [imgSrc]="'../../assets/images/0B8B2E8C-BB9A-43F5-A40F-246E863EF5D9.JPG'"></app-bg-img>
+<ng-container>
+  <div class="container">
+    <h1 class="title">
+      upcoming shows
+    </h1>
+    <table class="show-table">
+      <tr class="row-label">
+        <td>
+          DATE
+        </td>
+        <td>
+          TIME
+        </td>
+        <td>
+          LOCATION
+        </td>
+        <td>
+          BAND
+        </td>
+        <td>
+          COVER
+        </td>
+      </tr>
+      <ng-container *ngFor="let gig of gigs">
+        <tr>
+          <td>
+            {{gig.date | date :'shortDate'}}
+          </td>
+          <td>
+            {{gig.time}}
+          </td>
+          <td>
+            {{gig.venue}}
+          </td>
+          <td>
+            {{gig.bandName}}
+          </td>
+          <td>
+            {{gig.cover ? gig.cover : 'FREE'}}
+          </td>
+        </tr>
+      </ng-container>
+    </table>
+  </div>
+  <div class="return-btn return-btn-shows">
+    <p class="hover back-text-hover" (click)="goBack()">
+      back
+    </p>
+  </div>
+</ng-container>
+<!--
+  <td>
+        <img class="bg-cell" width="100%" height="100%" src=""/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img class="bg-cell" width="100%" height="100%" src="../../assets/images/Screen Shot 2022-02-25 at 6.45.00 PM.png"/>
+      </td>
+      <td>
+        <img class="bg-cell" width="100%" height="100%" src=""/>
+      </td>
+-->

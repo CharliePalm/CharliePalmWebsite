@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Trispace:wght@100&display=swap');
+
+.container {
+  text-align: center;
+  text-shadow: 4px 2px 10px black;
+}
+
+.title {
+  font-size: 70px;
+  font-family: 'Trispace', sans-serif;
+  font-style: italic;
+  z-index: 1000000;
+  text-shadow: 10px;
+  padding-top: 1rem;
+}
+
+.show-table {
+  position: relative;
+  height: 1%;
+  border-spacing: 10rem 3rem;
+  margin-left: auto;
+  margin-right: auto;
+  overflow-y: scroll;
+}
+
+.return-btn-shows {
+  text-align: center !important;
+  bottom: 15%;
+}
+
+.gigs td {
+  padding-top: 28%;
+  line-height: 150%;
+  text-align: center;
+  text-overflow:ellipsis;
+  text-shadow: 2px 0 3 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
+}
