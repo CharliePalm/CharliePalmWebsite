@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { State } from '../app.model';
 import { DataLoader } from '../../assets/data/data';
 
@@ -9,10 +9,10 @@ import { DataLoader } from '../../assets/data/data';
 })
 export class BioPageComponent {
   @Output() back: EventEmitter<State> = new EventEmitter<State>();
-  public data: DataLoader = new DataLoader();
+  @Input() dataLoader!: DataLoader;
 
   loadBio(): string {
-    return this.data.getBio();
+    return this.dataLoader.getBio();
   }
 
   goBack(): void {

@@ -10,6 +10,7 @@ import { BioPageComponent } from './bio-page/bio-page.component';
 import { ShowsPageComponent } from './shows-page/shows-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { AnimationsComponent } from './animations/animations.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,9 +25,12 @@ import { AnimationsComponent } from './animations/animations.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    HttpClient,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

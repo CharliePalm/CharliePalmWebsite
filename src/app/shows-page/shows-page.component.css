@@ -35,3 +35,8 @@
   text-overflow:ellipsis;
   text-shadow: 2px 0 3 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
 }
+
+.loader {
+  text-align: center;
+  font-size: 5rem;
+}
