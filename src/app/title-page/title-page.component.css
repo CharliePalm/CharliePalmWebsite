@@ -1,33 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Trispace:wght@100&display=swap');
 
-.img-grid {
-  table-layout:fixed;
-  overflow-x: auto;
-  width:  fit-content;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -50;
-}
-
-.img-grid tr td {
-  width: 25%;
-  height: 25%;
-  text-overflow: ellipsis;
-  word-wrap: break-word;
-}
-
 .bg-cell {
   display:block;
 }
 
 .container {
   text-align: center;
+  width: 110%;
+  height: 110%;
   text-shadow: 4px 2px 10px black;
 }
 
 .title {
-  font-size: 70px;
+  font-size: 5vw;
   font-family: 'Trispace', sans-serif;
   font-style: italic;
   z-index: 1000000;
@@ -40,14 +25,17 @@
   text-shadow: 2px 0 3 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
 }
 
-.widgets {
-  border-spacing: 4rem 0;
-  padding-top: 4%;
+.nav-table {
+  border-spacing: 2rem 0;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
   text-shadow: 2px 0 3 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
+}
 
+.lr-padding {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .bottom-layer {
@@ -61,9 +49,11 @@
 	background: #48466d;
 	transition: all 0.7s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
+
 bottom-layer.active {
-		top: -100%;
+	top: -100%;
 }
+
 .bottom-layer--2 {
   background: #ecf3a3;
 	transition-delay: 0.12s;

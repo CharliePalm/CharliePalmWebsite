@@ -1,47 +1,52 @@
-<app-bg-img [imgSrc]="'../../assets/images/0B8B2E8C-BB9A-43F5-A40F-246E863EF5D9.JPG'"></app-bg-img>
+<!--app-bg-img [imgSrc]="'../../assets/images/0B8B2E8C-BB9A-43F5-A40F-246E863EF5D9.JPG'"></app-bg-img!-->
 <ng-container>
   <div class="container" *ngIf="gigs$ | async as gigs; else loading">
-    <h1 class="title">
-      upcoming shows
-    </h1>
-    <table class="show-table">
-      <tr class="row-label">
-        <td>
-          DATE
-        </td>
-        <td>
-          TIME
-        </td>
-        <td>
-          LOCATION
-        </td>
-        <td>
-          BAND
-        </td>
-        <td>
-          COVER
-        </td>
-      </tr>
-      <ng-container *ngFor="let gig of gigs">
-        <tr>
+    <ng-container *ngIf="!gigs.length">
+      no gigs on the calendar for now
+    </ng-container>
+    <ng-container *ngIf="gigs.length">
+      <h1 class="title">
+        upcoming shows
+      </h1>
+      <table class="show-table">
+        <tr class="row-label">
           <td>
-            {{gig.date | date :'shortDate'}}
+            DATE
           </td>
           <td>
-            {{gig.time}}
+            TIME
           </td>
           <td>
-            {{gig.venue}}
+            LOCATION
           </td>
           <td>
-            {{gig.bandName}}
+            BAND
           </td>
           <td>
-            {{gig.cover ? gig.cover : 'FREE'}}
+            COVER
           </td>
         </tr>
-      </ng-container>
-    </table>
+        <ng-container *ngFor="let gig of gigs">
+          <tr>
+            <td>
+              {{gig.date | date : 'shortDate'}}
+            </td>
+            <td>
+              {{gig.time}}
+            </td>
+            <td>
+              {{gig.venue}}
+            </td>
+            <td>
+              {{gig.bandName}}
+            </td>
+            <td>
+              {{gig.cover ? gig.cover : 'FREE'}}
+            </td>
+          </tr>
+        </ng-container>
+      </table>
+    </ng-container>
   </div>
   <div class="return-btn return-btn-shows">
     <p class="hover back-text-hover" (click)="goBack()">
@@ -52,6 +57,6 @@
 
 <ng-template #loading>
   <div>
-    Loading shows...
+    loading shows...
   </div>
 </ng-template>

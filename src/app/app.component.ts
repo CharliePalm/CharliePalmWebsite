@@ -4,6 +4,7 @@ import { State } from './app.model';
 import { AnimationsComponent } from './animations/animations.component';
 import { DataLoader } from 'src/assets/data/data';
 import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

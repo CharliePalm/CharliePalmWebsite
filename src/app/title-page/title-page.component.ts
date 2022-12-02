@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { State } from '../app.model';
 
 @Component({
@@ -6,13 +6,9 @@ import { State } from '../app.model';
   templateUrl: './title-page.component.html',
   styleUrls: ['./title-page.component.css']
 })
-export class TitlePageComponent implements OnInit {
+export class TitlePageComponent {
   @Output() public goToState: EventEmitter<State> = new EventEmitter<State>();
   public state = State;
-  ngOnInit() {
-
-  }
-
   navigate(state: State) {
     this.goToState.emit(state);
   }

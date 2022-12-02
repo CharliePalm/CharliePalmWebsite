@@ -21,18 +21,6 @@ export class SocialLinksComponent implements OnInit {
         src: '../assets/images/icons8-facebook-32.png',
         link: 'https://www.facebook.com/charlie.palm.942',
       },
-      {
-        src: '../../assets/images/icons8-spotify-32.png',
-        link: 'https://open.spotify.com/artist/3zlaQJdTTg0CyoW693Hovo',
-      },
-      {
-        src: '../../assets/images/icons8-apple-logo-32.png',
-        link: 'https://music.apple.com/us/artist/sunline/1560591453',
-      },
-      {
-        src: '../../assets/images/icons8-youtube-logo-32.png',
-        link: 'https://www.youtube.com/channel/UCNyryoz0caIMXEnqFPFiOCA',
-      },
     ];
   }
 

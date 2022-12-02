@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TitlePageComponent } from './title-page/title-page.component';
 import { SocialLinksComponent } from './social-links/social-links.component';
+import { StreamingLinksComponent } from './streaming-links/streaming-links.component';
 import { BgImgComponent } from './background-image/background-img.component';
 import { BioPageComponent } from './bio-page/bio-page.component';
 import { ShowsPageComponent } from './shows-page/shows-page.component';
@@ -22,6 +23,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     ShowsPageComponent,
     ContactPageComponent,
     AnimationsComponent,
+    StreamingLinksComponent,
   ],
   imports: [
     BrowserModule,

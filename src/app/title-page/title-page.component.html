@@ -1,25 +1,33 @@
-<app-bg-img [imgSrc]="'../../assets/images/Copy of DSC00501.jpg'"></app-bg-img>
-<ng-container>
-  <div class="container">
-    <h1 class="title">
-      charlie palm
-    </h1>
-    <app-social-links></app-social-links>
-    <div class='subtitle'>
-      multi-instrumentalist | producer | composer | band-leader | teacher
-    </div>
-    <table class="widgets">
-      <tr>
-        <td class="hover back-text-hover" (click)="navigate(state.booking)">
-          booking
-        </td>
-        <td class="hover back-text-hover" (click)="navigate(state.shows)">
-          shows
-        </td>
-        <td class="hover back-text-hover" (click)="navigate(state.bio)">
-          bio
-        </td>
-      </tr>
+<div class="container">
+  <div class="header">
+    <table class="header-table">
+      <td class="left-clmn">
+        <app-streaming-links></app-streaming-links>
+      </td>
+      <td class="mid-clmn">
+        <h1 class="title">
+          charlie palm
+        </h1>
+      </td>
+      <td class="right-clmn">
+        <app-social-links></app-social-links>
+      </td>
     </table>
   </div>
-</ng-container>
+
+  <img src="../../assets/images/terrace-bass.jpg">
+  <div class='subtitle'>
+    multi-instrumentalist | producer | composer | band-leader | teacher
+  </div>
+  <div class="nav-table">
+    <i class="hover back-text-hover" (click)="navigate(state.booking)">
+      booking
+    </i>
+    <i class="hover back-text-hover lr-padding" (click)="navigate(state.shows)">
+      shows
+    </i>
+    <i class="hover back-text-hover" (click)="navigate(state.bio)">
+      bio
+    </i>
+  </div>
+</div>

@@ -12,12 +12,13 @@ import { Observable } from 'rxjs';
 export class ShowsPageComponent implements OnInit {
   @Output() back: EventEmitter<State> = new EventEmitter<State>();
   @Input() dataLoader!: DataLoader;
-  
-  public gigs$!: Observable<Gig[]> ;
+
+  public gigs$!: Promise<Gig[] | undefined> ;
 
   ngOnInit() {
     this.gigs$ = this.dataLoader.getGigs();
   }
+
   goBack(): void {
     this.back.emit(State.shows);
   }
