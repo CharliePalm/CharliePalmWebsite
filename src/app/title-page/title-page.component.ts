@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { DataLoader } from 'src/assets/data/data';
 import { State } from '../app.model';
 
 @Component({
@@ -8,8 +9,18 @@ import { State } from '../app.model';
 })
 export class TitlePageComponent {
   @Output() public goToState: EventEmitter<State> = new EventEmitter<State>();
+  @Input() public dataLoader!: DataLoader;
   public state = State;
   navigate(state: State) {
     this.goToState.emit(state);
+  }
+
+  public goToShows() {
+    console.log('test');
+  }
+
+  public scroll(el: HTMLElement) {
+    console.log('test');
+    el.scrollIntoView();
   }
 }

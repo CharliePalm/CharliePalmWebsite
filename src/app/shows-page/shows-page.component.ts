@@ -13,7 +13,7 @@ export class ShowsPageComponent implements OnInit {
   @Output() back: EventEmitter<State> = new EventEmitter<State>();
   @Input() dataLoader!: DataLoader;
 
-  public gigs$!: Promise<Gig[] | undefined> ;
+  public gigs$!: Observable<Gig[]>;
 
   ngOnInit() {
     this.gigs$ = this.dataLoader.getGigs();

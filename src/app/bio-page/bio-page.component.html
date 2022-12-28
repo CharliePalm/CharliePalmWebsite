@@ -1,16 +1,55 @@
 <!--app-bg-img [imgSrc]="'../../assets/images/ED6C7011-8B3A-4D3A-83E5-406D267E3145.JPG'"></app-bg-img!-->
-<ng-container>
+<ng-container *ngIf="bio$ | async as bio; else loading" #about>
   <div class="container">
-    <h1 class="title">
-      about charlie
-    </h1>
-    <p class="subtitle">
-      {{loadBio()}}
-    </p>
-    <div class="return-btn return-btn-bio">
-      <p class="hover back-text-hover" (click)="goBack()">
-        back
-      </p>
+    <table class="bio-table">
+      <tr>
+        <th colspan="2">
+          <h1 class="bio-title">
+            about charlie
+          </h1>
+        </th>
+      </tr>
+      <tr *ngIf="!singleColumn()">
+        <td [attr.rowspan]="bio.length - 1" class="image-cell">
+          <div class="bio-img">
+            <img src="../../assets/images/derykgsesh.JPG">
+          </div>
+        </td>
+        <td>
+          {{bio[0]}}
+        </td>
+      </tr>
+      <tr *ngIf="singleColumn()">
+        <td>
+          {{bio[0]}}
+        </td>
+      </tr>
+      <ng-container *ngFor="let paragraph of bio.slice(1, bio.length - 1);">
+        <tr>
+          <td>{{paragraph}}</td>
+        </tr>
+      </ng-container>
+      <tr>
+        <td [attr.colspan]="getBottomColSpan()">
+          {{bio[bio.length-1]}}
+        </td>
+      </tr>
+      <tr *ngIf="singleColumn()">
+        <td [attr.rowspan]="bio.length - 1" class="image-cell">
+          <div class="bio-img">
+            <img src="../../assets/images/derykgsesh.JPG">
+          </div>
+        </td>
+      </tr>
+    </table>
+    <div>
+      
     </div>
   </div>
 </ng-container>
+
+<ng-template #loading>
+  <div>
+    loading bio...
+  </div>
+</ng-template>

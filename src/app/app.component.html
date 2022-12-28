@@ -1,11 +1,5 @@
 <ng-container *ngIf="currentState===state.title">
-  <app-title-page (goToState)="goToPage($event)"></app-title-page>
-</ng-container>
-<ng-container *ngIf="currentState===state.bio">
-  <app-bio-page (back)="back($event)" [dataLoader]="dataLoader"></app-bio-page>
-</ng-container>
-<ng-container *ngIf="currentState===state.booking">
-  <app-contact-page (back)="back($event)"></app-contact-page>
+  <app-title-page (goToState)="goToPage($event)" [dataLoader]="dataLoader"></app-title-page>
 </ng-container>
 <ng-container *ngIf="currentState===state.shows">
   <app-shows-page (back)="back($event)" [dataLoader]="dataLoader"></app-shows-page>

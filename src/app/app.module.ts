@@ -10,7 +10,7 @@ import { BgImgComponent } from './background-image/background-img.component';
 import { BioPageComponent } from './bio-page/bio-page.component';
 import { ShowsPageComponent } from './shows-page/shows-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
-import { AnimationsComponent } from './animations/animations.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -22,7 +22,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     BioPageComponent,
     ShowsPageComponent,
     ContactPageComponent,
-    AnimationsComponent,
+    SidebarComponent,
     StreamingLinksComponent,
   ],
   imports: [

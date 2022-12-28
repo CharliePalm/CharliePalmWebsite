@@ -1,25 +1,64 @@
-<div class="container">
-  <div class="header">
-    <table class="header-table">
-      <td class="left-clmn">
-        <app-streaming-links></app-streaming-links>
-      </td>
-      <td class="mid-clmn">
-        <h1 class="title">
-          charlie palm
-        </h1>
-      </td>
-      <td class="right-clmn">
-        <app-social-links></app-social-links>
-      </td>
-    </table>
+<div class="parallax">
+  <div class="parallax-group">
+    <div class="header parallax-layer parallax-layer-base">
+      <table class="header-table">
+        <td class="left-clmn">
+          <app-streaming-links></app-streaming-links>
+        </td>
+        <td class="mid-clmn">
+          <h1 class="title">
+            charlie palm
+          </h1>
+        </td>
+        <td class="right-clmn">
+          <app-social-links></app-social-links>
+        </td>
+      </table>
+    </div>
+    <div class="bg parallax-layer parallax-layer-back">
+      <div class="navigation-btns">
+        <table class="navigation-table">
+          <tr>
+            <td click="goToShows()">
+              upcoming shows
+            </td>
+          </tr>
+          <tr>
+            <td click="scroll(contact)">
+              contact
+            </td>
+          </tr>
+          <tr>
+            <td click="scroll(about)">
+              about
+            </td>
+          </tr>
+        </table>
+      </div>
+      <img class="bg-img" src="../../assets/images/terrace-bass.jpg">
+    </div>
   </div>
-  <!--div class="img">
-    <img src="../../assets/images/terrace-bass.jpg">
-  </div-->
-  <div class='subtitle'>
-    multi-instrumentalist | producer | composer | band-leader | teacher
+  <div class="parallax-group">
+    <div class="bio-container">
+      <div class="bio parallax-layer parallax-layer-base" #about>
+        <app-bio-page [dataLoader]="dataLoader"></app-bio-page>
+      </div>
+    </div>
+    <div class="parallax-layer parallax-layer-back">
+      <img class="bg-img second-img" src="../../assets/images/IMG_0078.jpg">
+    </div>
+    <div class="parallax-group contact-container">
+      <div class="contact-container">
+        <div class="contact parallax-layer parallax-layer-base" #contact>
+          <app-contact-page [dataLoader]="dataLoader"></app-contact-page>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
+
+
+  <!--ng-container>
   <div class="nav-table">
     <i class="hover back-text-hover" (click)="navigate(state.booking)">
       booking
@@ -31,4 +70,4 @@
       bio
     </i>
   </div>
-</div>
+  </ng-container-->
