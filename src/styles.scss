@@ -91,6 +91,12 @@ body {
   }
 }
 
+@media only screen and (min-width: 2400px) {
+  .bg-img {
+    width: 100%;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .title {
     font-size: 3rem !important;

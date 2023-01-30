@@ -70,11 +70,15 @@
 
 .navigation-btns {
   width: 30%; height: 30%;
-  position: fixed;
+  position: relative;
   padding-top: 45rem;
-  z-index: 2;
+  z-index: 1000000000;
   display: inline-block;
   margin: 0 !important;
+  cursor: pointer;
+  &:hover {
+    font-weight: bold;
+  }
 }
 
 .navigation-table {
