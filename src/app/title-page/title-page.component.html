@@ -3,44 +3,30 @@
     <div class="header parallax-layer parallax-layer-base">
       <table class="header-table">
         <td class="left-clmn">
-          <app-streaming-links></app-streaming-links>
+          <ng-container *ngIf="!isCollapsed">
+            <app-streaming-links></app-streaming-links>
+          </ng-container>
+          <ng-container *ngIf="isCollapsed">
+            <button mat-icon-button (click)="toggleSidebar()"></button>
+          </ng-container>
         </td>
         <td class="mid-clmn">
           <h1 class="title">
             charlie palm
           </h1>
         </td>
-        <td class="right-clmn">
+        <td class="right-clmn" *ngIf="!isCollapsed">
           <app-social-links></app-social-links>
         </td>
       </table>
     </div>
     <div class="bg parallax-layer parallax-layer-back">
-      <div class="navigation-btns">
-        <table class="navigation-table">
-          <tr>
-            <td click="goToShows()">
-              upcoming shows
-            </td>
-          </tr>
-          <tr>
-            <td click="scroll(contact)">
-              contact
-            </td>
-          </tr>
-          <tr>
-            <td click="scroll(about)">
-              about
-            </td>
-          </tr>
-        </table>
-      </div>
       <img class="bg-img" src="../../assets/images/terrace-bass.jpg">
     </div>
   </div>
   <div class="parallax-group">
-    <div class="bio-container">
-      <div class="bio parallax-layer parallax-layer-base" #about>
+    <div class="">
+      <div class="bio bio-container parallax-layer parallax-layer-base" #about>
         <app-bio-page [dataLoader]="dataLoader"></app-bio-page>
       </div>
     </div>

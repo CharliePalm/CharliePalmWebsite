@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { DataLoader } from 'src/assets/data/data';
 import { State } from '../app.model';
 
@@ -11,6 +11,7 @@ export class TitlePageComponent {
   @Output() public goToState: EventEmitter<State> = new EventEmitter<State>();
   @Input() public dataLoader!: DataLoader;
   public state = State;
+  public isCollapsed = false;
   navigate(state: State) {
     this.goToState.emit(state);
   }
@@ -22,5 +23,17 @@ export class TitlePageComponent {
   public scroll(el: HTMLElement) {
     console.log('test');
     el.scrollIntoView();
+  }
+
+  @HostListener("window:resize", []) windowSizeCheck() {
+    if (window.innerWidth <= 800) {
+      this.isCollapsed = true;
+    } else {
+      this.isCollapsed = false;
+    }
+  }
+
+  toggleSidebar() {
+    
   }
 }
