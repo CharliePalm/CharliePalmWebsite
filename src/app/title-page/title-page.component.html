@@ -1,4 +1,4 @@
-<div class="parallax">
+<div class="parallax" *ngIf="loaded == images.length">
   <div class="parallax-group">
     <div class="header parallax-layer parallax-layer-base">
       <table class="header-table">
@@ -7,11 +7,11 @@
             <app-streaming-links></app-streaming-links>
           </ng-container>
           <ng-container *ngIf="isCollapsed">
-            <button mat-icon-button (click)="toggleSidebar()"></button>
+            <!--app-sidebar></app-sidebar!-->
           </ng-container>
         </td>
         <td class="mid-clmn">
-          <h1 class="title">
+          <h1 class="main-title">
             charlie palm
           </h1>
         </td>
@@ -20,29 +20,24 @@
         </td>
       </table>
     </div>
-    <div class="bg parallax-layer parallax-layer-back">
-      <img class="bg-img" src="../../assets/images/terrace-bass.jpg">
+    <div class="parallax-layer parallax-layer-back">
+      <img class="bg-img terrace" src="../../assets/images/terrace-bass.jpg">
     </div>
-  </div>
-  <div class="parallax-group">
     <div class="bio bio-container parallax-layer parallax-layer-base" #about>
       <app-bio-page [dataLoader]="dataLoader"></app-bio-page>
     </div>
+    <div class="parallax-layer parallax-layer-back" [style.margin-top.rem]="getSecondImgMargin()">
+      <img class="bg-img green-mill" src="../../assets/images/greenMill.jpg">
+    </div>
+
+    <div class="shows-container parallax-layer parallax-layer-base" #shows>
+      <app-shows-page [dataLoader]="dataLoader"></app-shows-page>
+    </div>
     <div class="parallax-layer parallax-layer-back">
-      <img class="bg-img second-img" src="../../assets/images/greenMill.jpg">
+      <img class="bg-img lincoln-hall" src="../../assets/images/IMG_0078.jpg">
     </div>
-    <div class="parallax-group shows-container">
-      <div class="parallax-layer parallax-layer-base" #shows>
-        <app-shows-page [dataLoader]="dataLoader"></app-shows-page>
-      </div>
-    </div>
-    <div class="parallax-layer parallax-layer-back">
-      <img class="bg-img second-img" src="../../assets/images/IMG_0078.jpg">
-    </div>
-    <div class="parallax-group contact-container">
-      <div class="contact parallax-layer parallax-layer-base" #contact>
-        <app-contact-page [dataLoader]="dataLoader"></app-contact-page>
-      </div>
+    <div class="contact parallax-layer parallax-layer-base" #contact>
+      <app-contact-page [dataLoader]="dataLoader"></app-contact-page>
     </div>
   </div>
 </div>

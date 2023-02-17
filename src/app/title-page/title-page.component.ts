@@ -1,4 +1,5 @@
-import { Component, EventEmitter, HostListener, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, HostListener, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
 import { DataLoader } from 'src/assets/data/data';
 import { State } from '../app.model';
 
@@ -7,13 +8,26 @@ import { State } from '../app.model';
   templateUrl: './title-page.component.html',
   styleUrls: ['./title-page.component.scss']
 })
-export class TitlePageComponent {
+export class TitlePageComponent implements OnInit {
   @Output() public goToState: EventEmitter<State> = new EventEmitter<State>();
   @Input() public dataLoader!: DataLoader;
   public state = State;
   public isCollapsed = false;
+  public images = ['../../assets/images/terrace-bass.jpg', '../../assets/images/greenMill.jpg', '../../assets/images/IMG_0078.jpg'];
+  public loading = true;
+  public loaded = 0;
+  
   navigate(state: State) {
     this.goToState.emit(state);
+  }
+  
+  ngOnInit() {
+    this.windowSizeCheck();    
+    this.images.forEach((imageUrl) => {
+      const img = new Image();
+      img.onload = () => this.loaded++;
+      img.src = imageUrl;
+    });
   }
 
   public goToShows() {
@@ -33,7 +47,7 @@ export class TitlePageComponent {
     }
   }
 
-  toggleSidebar() {
-    
+  getSecondImgMargin() {
+    return 0;
   }
 }

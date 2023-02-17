@@ -6,39 +6,32 @@
   background-color: black;
   padding-bottom: 2rem;
   padding-top: 1rem;
+  width: 100%;
 }
 
 
 .title {
-  font-size: 70px;
+  font-size: calc(5vw + 1rem);
   font-family: 'Trispace', sans-serif;
   font-style: italic;
   z-index: 1000000;
   text-shadow: 10px;
-  padding-top: 1rem;
 }
 
 .show-table {
   position: relative;
-  height: 1%;
-  border-spacing: 4rem 4rem;
   margin-left: auto;
   margin-right: auto;
   overflow-x: scroll;
+  width: 90%;
+  td {
+    font-size: calc(.56vw + .5rem);
+    line-height: calc(2vw + 1rem);
+  }
 }
 
 .return-btn-shows {
   text-align: center !important;
-  bottom: 15%;
-}
-
-.gigs td {
-  padding-top: 28%;
-  line-height: 200%;
-  font-size: 2rem;
-  text-align: center;
-  text-overflow:ellipsis;
-  text-shadow: 2px 0 3 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
 }
 
 .loader {

@@ -14,6 +14,10 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon'
+import { MatButtonModule } from '@angular/material/button'
+import { MatDividerModule } from '@angular/material/divider';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -28,11 +32,15 @@ import { MatIconModule } from '@angular/material/icon'
     StreamingLinksComponent,
   ],
   imports: [
+    HttpClientModule,
+    MatIconModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
     MatSidenavModule,
-    MatIconModule,
+    MatButtonModule,
+    MatDividerModule,
   ],
   providers: [
     HttpClient,

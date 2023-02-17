@@ -6,6 +6,12 @@ html {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
   color: #ebedf5;
   z-index: -100 !important;
+  scroll-behavior: smooth;
+}
+
+td {
+  font-size: calc(.56vw + .5rem);
+  line-height: 2.5rem;
 }
 
 img {
@@ -85,11 +91,23 @@ body {
 @media only screen and (max-width: 800px) {
   .bg-img {
     width: 110rem;
+  }
+  .terrace {
     object-position: -32rem 0rem !important;
   }
-  .title {
-    font-size: 4rem !important;
+  .lincoln-hall {
+    object-position: 0rem 0rem !important;
+  }
+  .green-mill {
+    object-position: -15rem 0rem !important;
+    width: 70rem;
+  }
+
+  .main-title {
+    font-size: 3.5rem !important;
     text-align: right;
+    padding-top: 1rem !important;
+    padding-right: 1rem !important;
   }
 }
 
@@ -99,9 +117,9 @@ body {
   }
 }
 
-@media only screen and (max-width: 600px) {
-  .title {
-    font-size: 3rem !important;
+@media only screen and (max-width: 550px) {
+  .title .main-title {
+    font-size: 1rem !important;
   }
 }
 

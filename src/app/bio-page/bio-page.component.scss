@@ -8,7 +8,7 @@
 }
 
 .bio-title {
-  font-size: 70px;
+  font-size: calc(3vw + 1rem);
   font-family: 'Trispace', sans-serif;
   font-style: italic;
   z-index: 1000000;
@@ -24,18 +24,6 @@
   padding-top: 30%;
 }
 
-.subtitle {
-  position: relative;
-  float: left;
-  padding-top: 22%;
-  width: 50%;
-  line-height: 150%;
-  text-align: left;
-  padding-right: 40%;
-  text-overflow:ellipsis;
-  text-shadow: 2px 0 3 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
-}
-
 .bio-img {
   width: 100%;
   opacity: 90%;
@@ -44,7 +32,6 @@
 
 .bio-table {
   align-items: center;
-  justify-content: center;
   padding-right: 10vw;
   padding-left: 10vw;
   line-height: 2rem;
@@ -57,16 +44,14 @@
   }
 }
 
-@media(max-width: 768px){ 
-  .container{
-    flex-direction: column;
-  }
-  // now your first column will take the full width of the parent 
-  // container which will push the second column below it
-  .container__col-1{ 
-    width: 100%;
-  }
-  .container__col-2{
-    width: 100%;
+@media(max-width: 786px) {
+  .bio-table {
+    padding: 0px 0px 0px 0px;
+    margin-left: 0;
+    td {
+      padding-left: .5rem;
+      padding-right: .5rem;
+    }
   }
 }
+
