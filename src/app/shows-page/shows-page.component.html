@@ -2,7 +2,7 @@
 <ng-container>
   <div class="container" *ngIf="gigs$ | async as gigs; else loading">
     <ng-container *ngIf="!gigs.length">
-      no gigs on the calendar for now
+      no gigs on the calendar for now - check back soon!
     </ng-container>
     <ng-container *ngIf="gigs.length">
       <h1 class="title">
@@ -47,11 +47,11 @@
         </ng-container>
       </table>
     </ng-container>
-  </div>
-  <div class="return-btn return-btn-shows">
-    <p class="hover back-text-hover" (click)="goBack()">
-      back
-    </p>
+    <!--div class="return-btn return-btn-shows">
+      <p class="hover back-text-hover" (click)="goBack()">
+        back to top
+      </p>
+    </div!-->
   </div>
 </ng-container>
 

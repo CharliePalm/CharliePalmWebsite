@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-shows-page',
   templateUrl: './shows-page.component.html',
-  styleUrls: ['./shows-page.component.css']
+  styleUrls: ['./shows-page.component.scss']
 })
 export class ShowsPageComponent implements OnInit {
   @Output() back: EventEmitter<State> = new EventEmitter<State>();

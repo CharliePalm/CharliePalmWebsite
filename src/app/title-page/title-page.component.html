@@ -25,35 +25,24 @@
     </div>
   </div>
   <div class="parallax-group">
-    <div class="">
-      <div class="bio bio-container parallax-layer parallax-layer-base" #about>
-        <app-bio-page [dataLoader]="dataLoader"></app-bio-page>
+    <div class="bio bio-container parallax-layer parallax-layer-base" #about>
+      <app-bio-page [dataLoader]="dataLoader"></app-bio-page>
+    </div>
+    <div class="parallax-layer parallax-layer-back">
+      <img class="bg-img second-img" src="../../assets/images/greenMill.jpg">
+    </div>
+    <div class="parallax-group shows-container">
+      <div class="parallax-layer parallax-layer-base" #shows>
+        <app-shows-page [dataLoader]="dataLoader"></app-shows-page>
       </div>
     </div>
     <div class="parallax-layer parallax-layer-back">
       <img class="bg-img second-img" src="../../assets/images/IMG_0078.jpg">
     </div>
     <div class="parallax-group contact-container">
-      <div class="contact-container">
-        <div class="contact parallax-layer parallax-layer-base" #contact>
-          <app-contact-page [dataLoader]="dataLoader"></app-contact-page>
-        </div>
+      <div class="contact parallax-layer parallax-layer-base" #contact>
+        <app-contact-page [dataLoader]="dataLoader"></app-contact-page>
       </div>
     </div>
   </div>
 </div>
-
-
-  <!--ng-container>
-  <div class="nav-table">
-    <i class="hover back-text-hover" (click)="navigate(state.booking)">
-      booking
-    </i>
-    <i class="hover back-text-hover lr-padding" (click)="navigate(state.shows)">
-      shows
-    </i>
-    <i class="hover back-text-hover" (click)="navigate(state.bio)">
-      bio
-    </i>
-  </div>
-  </ng-container-->

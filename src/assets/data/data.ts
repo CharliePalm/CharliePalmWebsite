@@ -25,9 +25,7 @@ export class DataLoader {
   }
 
   public loadGigs(): Observable<Gig[]> {
-    return of([]);
-    /** 
-    this.http.get<any>('https://api.github.com/repos/CharliePalm/PsuedoAPI/contents/charlieGigs.json').pipe(
+    return this.http.get<any>('https://api.github.com/repos/CharliePalm/PsuedoAPI/contents/charlieGigs.json').pipe(
       switchMap((response) => {
         return this.http.get<Gig[]>(response.download_url);
       }),
@@ -49,7 +47,6 @@ export class DataLoader {
         return [];
       }),
     );
-    */
   }
 
   public loadBio(): Observable<string[]> {

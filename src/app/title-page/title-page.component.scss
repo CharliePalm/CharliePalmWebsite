@@ -57,15 +57,18 @@
 .contact-container {
   width: 100%;
   position: absolute;
-  margin-top: 60rem;
   z-index: -100;
   .contact {
     background-color: #1b1321;
   }
 }
 
+.shows-container {
+  padding-top: 5rem;
+}
+
 .second-img {
-  padding-top: 60rem;
+  padding-top: 50rem;
 }
 
 .navigation-btns {
