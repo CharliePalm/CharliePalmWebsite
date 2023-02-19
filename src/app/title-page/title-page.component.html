@@ -1,24 +1,34 @@
-<div class="parallax" *ngIf="loaded == images.length">
+<div class="parallax">
   <div class="parallax-group">
     <div class="header parallax-layer parallax-layer-base">
       <table class="header-table">
-        <td class="left-clmn">
-          <ng-container *ngIf="!isCollapsed">
-            <app-streaming-links></app-streaming-links>
-          </ng-container>
-          <ng-container *ngIf="isCollapsed">
-            <!--app-sidebar></app-sidebar!-->
-          </ng-container>
-        </td>
-        <td class="mid-clmn">
-          <h1 class="main-title">
-            charlie palm
-          </h1>
-        </td>
-        <td class="right-clmn" *ngIf="!isCollapsed">
-          <app-social-links></app-social-links>
-        </td>
+        <tr>
+          <td class="left-clmn">
+            <ng-container *ngIf="!isCollapsed">
+              <app-streaming-links></app-streaming-links>
+            </ng-container>
+          </td>
+          <td class="mid-clmn col-lg-12">
+            <h1 class="main-title">
+              charlie palm
+            </h1>
+          </td>
+          <td class="right-clmn" *ngIf="!isCollapsed">
+            <app-social-links></app-social-links>
+          </td>
+          <td class="menu-toggle col-sm-2" *ngIf="isCollapsed">
+            <button mat-icon-button (click)="toggleMenu()">
+              <mat-icon *ngIf="!menu.opened">
+                  menu
+              </mat-icon>
+              <mat-icon *ngIf="menu.opened">
+                  close
+              </mat-icon>
+            </button>
+          </td>
+        </tr>
       </table>
+      <app-menu></app-menu>
     </div>
     <div class="parallax-layer parallax-layer-back">
       <img class="bg-img terrace" src="../../assets/images/terrace-bass.jpg">
@@ -26,7 +36,7 @@
     <div class="bio bio-container parallax-layer parallax-layer-base" #about>
       <app-bio-page [dataLoader]="dataLoader"></app-bio-page>
     </div>
-    <div class="parallax-layer parallax-layer-back" [style.margin-top.rem]="getSecondImgMargin()">
+    <div class="parallax-layer parallax-layer-back">
       <img class="bg-img green-mill" src="../../assets/images/greenMill.jpg">
     </div>
 

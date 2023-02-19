@@ -1,0 +1,20 @@
+
+.menu-content {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 3rem;
+    background-color: #9b8e74; // darker
+    margin-top: 1rem;
+    padding-top: 1rem;
+    tr {
+        font-size: 18px;
+        font-style: italic;
+        line-height: 33vh;
+    }
+    animation: fadeIn 1s;
+}
+
+@keyframes open {
+    0% {}
+    100% {}
+}

@@ -6,11 +6,10 @@ import { AppComponent } from './app.component';
 import { TitlePageComponent } from './title-page/title-page.component';
 import { SocialLinksComponent } from './social-links/social-links.component';
 import { StreamingLinksComponent } from './streaming-links/streaming-links.component';
-import { BgImgComponent } from './background-image/background-img.component';
 import { BioPageComponent } from './bio-page/bio-page.component';
 import { ShowsPageComponent } from './shows-page/shows-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { MenuComponent } from './menu/menu.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon'
@@ -24,11 +23,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     AppComponent,
     SocialLinksComponent,
     TitlePageComponent,
-    BgImgComponent,
     BioPageComponent,
     ShowsPageComponent,
     ContactPageComponent,
-    SidebarComponent,
+    MenuComponent,
     StreamingLinksComponent,
   ],
   imports: [

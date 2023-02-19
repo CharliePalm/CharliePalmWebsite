@@ -1,4 +1,3 @@
-
 html {
   height: 100%;
   width: 100%;
@@ -35,12 +34,12 @@ img {
 }
 
 .header {
-  //background-color: #dbccaf; lighter
-  background-color: #9b8e74; // darker
+  background-color: #000000; 
+  //background-color: #9b8e74; darker
   top: 0; right: 0; bottom: 0; left: 0;
   position: absolute;
   width: 100%;
-  height: 8rem;
+  min-height: 8rem;
 }
 
 .hover {
@@ -88,26 +87,47 @@ body {
   transform: translateZ(-.025px) scale(1.75);
 }
 
-@media only screen and (max-width: 800px) {
+@media (prefers-reduced-motion: no-preference) {
+  .fade-in {
+    animation: fadeIn .5s;
+  }
+  .fade-out {
+    animation: fadeOut .5s;
+  }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@media only screen and (max-width: 980px) {
   .bg-img {
     width: 110rem;
   }
   .terrace {
-    object-position: -32rem 0rem !important;
+    object-position: -30rem 0rem !important;
   }
   .lincoln-hall {
     object-position: 0rem 0rem !important;
   }
   .green-mill {
     object-position: -15rem 0rem !important;
-    width: 70rem;
+    width: 110rem;
   }
 
   .main-title {
-    font-size: 3.5rem !important;
-    text-align: right;
-    padding-top: 1rem !important;
-    padding-right: 1rem !important;
+    font-size: calc(8vw) !important;
+    text-align: left;
+    padding-top: 2.5rem !important;
+  }
+  .header {
+    height: 3rem !important;
   }
 }
 

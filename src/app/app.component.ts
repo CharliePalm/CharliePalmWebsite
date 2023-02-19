@@ -1,7 +1,6 @@
 import { state } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { State } from './app.model';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { DataLoader } from 'src/assets/data/data';
 import { HttpClient } from '@angular/common/http';
 
