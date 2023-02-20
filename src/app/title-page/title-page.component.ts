@@ -2,7 +2,7 @@ import { AfterViewInit, Component, EventEmitter, HostListener, Input, OnInit, Ou
 import { MatSidenav } from '@angular/material/sidenav';
 import { DataLoader } from 'src/assets/data/data';
 import { State } from '../app.model';
-
+import * as parallax from 'ngx-parallax-scroll';
 @Component({
   selector: 'app-title-page',
   templateUrl: './title-page.component.html',
@@ -16,7 +16,18 @@ export class TitlePageComponent implements OnInit {
   public images = ['../../assets/images/terrace-bass.jpg', '../../assets/images/greenMill.jpg', '../../assets/images/IMG_0078.jpg'];
   public loading = true;
   public loaded = 0;
-  
+  public bgParallax: parallax.IParallaxScrollConfig = {
+      parallaxSpeed: .4,
+      parallaxSmoothness: 0,
+      parallaxTimingFunction: 'ease'
+  }
+
+  public fgParallax: parallax.IParallaxScrollConfig = {
+    parallaxSpeed: 0,
+    parallaxTimingFunction: 'ease',
+    parallaxSmoothness: 1,
+}
+
   navigate(state: State) {
     this.goToState.emit(state);
   }
@@ -45,9 +56,5 @@ export class TitlePageComponent implements OnInit {
     } else {
       this.isCollapsed = false;
     }
-  }
-
-  getSecondImgMargin() {
-    return 0;
   }
 }

@@ -18,6 +18,7 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatDividerModule } from '@angular/material/divider';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { NgxParallaxScrollModule } from 'ngx-parallax-scroll';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatSidenavModule,
     MatButtonModule,
     MatDividerModule,
+    NgxParallaxScrollModule,
   ],
   providers: [
     HttpClient,
