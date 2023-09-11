@@ -1,13 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Trispace:wght@100&display=swap');
-
-.bg-cell {
-  display:block;
+.bg-container {
+  z-index: -1000;
 }
 
-.img-spacer {
-  padding-top: 100rem;
-  position: relative;
-  z-index: -100000;
+.px-item {
+  --p-size: 50;
+  padding-top: 50rem;
 }
 
 .main-title {
@@ -42,17 +40,16 @@
   padding-bottom: 8rem;
 }
 
-.contact-container {
-  width: 100%;
-  position: absolute;
-  z-index: -100;
-  .contact {
-    background-color: #1b1321;
-  }
+.green-mill {
+  //padding-top: calc(85rem - 45vw);
 }
 
-.shows-container {
-  margin-top: 15rem;
+.contact-container {
+  width: 100%;
+}
+
+.page-container {
+  margin-top: 100vh;
 }
 
 .second-img {

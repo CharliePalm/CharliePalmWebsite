@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { State } from '../app.model';
 import { DataLoader } from '../../assets/data/data';
-import { Gig } from 'src/assets/data/data.model';
+import { Gig } from '../../assets/data/data.model';
 import { Observable } from 'rxjs';
 
 @Component({

@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, EventEmitter, HostListener, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
-import { DataLoader } from 'src/assets/data/data';
+import { DataLoader } from '../../assets/data/data';
 import { State } from '../app.model';
 
 @Component({
@@ -13,21 +13,13 @@ export class TitlePageComponent implements OnInit {
   @Input() public dataLoader!: DataLoader;
   public state = State;
   public isCollapsed = false;
-  public images = ['../../assets/images/terrace-bass.jpg', '../../assets/images/greenMill.jpg', '../../assets/images/IMG_0078.jpg'];
-  public loading = true;
-  public loaded = 0;
-  
+
   navigate(state: State) {
     this.goToState.emit(state);
   }
   
   ngOnInit() {
-    this.windowSizeCheck();    
-    this.images.forEach((imageUrl) => {
-      const img = new Image();
-      img.onload = () => this.loaded++;
-      img.src = imageUrl;
-    });
+    this.windowSizeCheck();
   }
 
   public goToShows() {
@@ -45,9 +37,5 @@ export class TitlePageComponent implements OnInit {
     } else {
       this.isCollapsed = false;
     }
-  }
-
-  getSecondImgMargin() {
-    return 0;
   }
 }

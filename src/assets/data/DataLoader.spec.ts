@@ -1,6 +1,6 @@
 import { formatDate } from "@angular/common";
 import { HttpClient } from "@angular/common/http";
-import { of } from "rxjs";
+import { map, of, tap } from "rxjs";
 import { DataLoader } from "./data";
 
 describe('data loader', () => {
@@ -10,8 +10,12 @@ describe('data loader', () => {
       const loader = new DataLoader({ get: () => of([]) } as unknown as HttpClient);
 
       const result = loader.getGigs();
-      console.log(result.map((g) => g.date));
-      expect(result.length).toBe(4);
+      result.pipe(
+        tap((gigs) => {
+          console.log(gigs.map((g) => g.date));
+          expect(gigs.length).toBe(4);
+        }),
+      );
     });
 
     it('should sort gigs', () => {
@@ -37,7 +41,10 @@ describe('data loader', () => {
       const loader = new DataLoader(testGigs);
 
       const result = loader.getGigs();
-      expect(result.map((gig) => gig.description)).toEqual(['1', '2', '3', '4']);
+      result.pipe(
+        map((gigs) => gigs.map((g) => g.description))),
+        tap((gigs) => expect(gigs).toEqual(['1', '2', '3', '4'])
+      );
     });
   });
 });

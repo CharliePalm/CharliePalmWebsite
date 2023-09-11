@@ -1,43 +1,19 @@
-<div class="parallax" *ngIf="loaded == images.length">
-  <div class="parallax-group">
-    <div class="header parallax-layer parallax-layer-base">
-      <table class="header-table">
-        <td class="left-clmn">
-          <ng-container *ngIf="!isCollapsed">
-            <app-streaming-links></app-streaming-links>
-          </ng-container>
-          <ng-container *ngIf="isCollapsed">
-            <!--app-sidebar></app-sidebar!-->
-          </ng-container>
-        </td>
-        <td class="mid-clmn">
-          <h1 class="main-title">
-            charlie palm
-          </h1>
-        </td>
-        <td class="right-clmn" *ngIf="!isCollapsed">
-          <app-social-links></app-social-links>
-        </td>
-      </table>
-    </div>
-    <div class="parallax-layer parallax-layer-back">
-      <img class="bg-img terrace" src="../../assets/images/terrace-bass.jpg">
-    </div>
-    <div class="bio bio-container parallax-layer parallax-layer-base" #about>
-      <app-bio-page [dataLoader]="dataLoader"></app-bio-page>
-    </div>
-    <div class="parallax-layer parallax-layer-back" [style.margin-top.rem]="getSecondImgMargin()">
-      <img class="bg-img green-mill" src="../../assets/images/greenMill.jpg">
-    </div>
-
-    <div class="shows-container parallax-layer parallax-layer-base" #shows>
-      <app-shows-page [dataLoader]="dataLoader"></app-shows-page>
-    </div>
-    <div class="parallax-layer parallax-layer-back">
-      <img class="bg-img lincoln-hall" src="../../assets/images/IMG_0078.jpg">
-    </div>
-    <div class="contact parallax-layer parallax-layer-base" #contact>
-      <app-contact-page [dataLoader]="dataLoader"></app-contact-page>
-    </div>
+<div class="bg-container">
+  <img class="bg-img terrace" src="../../assets/images/terrace-bass.jpg" appParallax [ratio]="-.5">
+  <img class="bg-img green-mill" src="../../assets/images/greenMill.jpg"appParallax [ratio]="-.5">
+  <img class="bg-img lincoln-hall" src="../../assets/images/IMG_0078.jpg" appParallax [ratio]="-.5">
+</div>
+<div>
+  <h1 class="main-title">
+    charlie palm
+  </h1>
+  <div class="page-container bio-container" #about>
+    <app-bio-page [dataLoader]="dataLoader"></app-bio-page>
+  </div>
+  <div class="page-container shows-container" #shows>
+    <app-shows-page [dataLoader]="dataLoader"></app-shows-page>
+  </div>
+  <div class="page-container contact-container" #contact>
+    <app-contact-page [dataLoader]="dataLoader"></app-contact-page>
   </div>
 </div>

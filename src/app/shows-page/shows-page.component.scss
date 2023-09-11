@@ -7,6 +7,7 @@
   padding-bottom: 2rem;
   padding-top: 1rem;
   width: 100%;
+  min-height: 20rem;
 }
 
 
@@ -28,6 +29,10 @@
     font-size: calc(.56vw + .5rem);
     line-height: calc(2vw + 1rem);
   }
+}
+
+.centered {
+  margin-top: 10rem;
 }
 
 .return-btn-shows {

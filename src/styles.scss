@@ -2,36 +2,21 @@
 html {
   height: 100%;
   width: 100%;
-  background: #000000;
+  background: grey;
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
   color: #ebedf5;
-  z-index: -100 !important;
+  z-index: -100000 !important;
   scroll-behavior: smooth;
 }
 
 td {
-  font-size: calc(.56vw + .5rem);
+  font-size: 14px;
   line-height: 2.5rem;
 }
 
 img {
   width: 100%;
   height: auto;
-}
-
-.header-table {
-  width: 100%;
-  z-index: 100000000;
-  .right-clmn {
-    text-align: left;
-  }
-  .mid-clmn {
-    text-align: center;
-    width: 40rem;
-  }
-  .left-clmn {
-    text-align: right;
-  }
 }
 
 .header {
@@ -82,10 +67,8 @@ body {
 }
 
 .bg-img {
-  padding-top: 3rem;
   width: 130rem;
-  z-index: -100;
-  transform: translateZ(-.025px) scale(1.75);
+  --p-size: 100;
 }
 
 @media only screen and (max-width: 800px) {
@@ -100,7 +83,7 @@ body {
   }
   .green-mill {
     object-position: -15rem 0rem !important;
-    width: 70rem;
+    //width: 70rem;
   }
 
   .main-title {
@@ -111,7 +94,7 @@ body {
   }
 }
 
-@media only screen and (min-width: 2000px) {
+@media only screen and (min-width: 2400px) {
   .bg-img {
     width: 100%;
   }
@@ -140,6 +123,7 @@ body {
   100% { transform: rotate(360deg); }
 }
 
+/*
 .parallax-layer {
   position: relative;
   transform-origin-x: 100%;
@@ -163,7 +147,6 @@ body {
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
-  perspective-origin-x: 100%;
 }
 
 .parallax-group {
@@ -171,3 +154,4 @@ body {
   height: 100vh;
   transform-style: preserve-3d;
 }
+*/
