@@ -17,7 +17,6 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatDividerModule } from '@angular/material/divider';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { ParallaxDirective } from './utilities/parallax.directive';
 
 @NgModule({
   declarations: [
@@ -29,7 +28,6 @@ import { ParallaxDirective } from './utilities/parallax.directive';
     ContactPageComponent,
     SidebarComponent,
     StreamingLinksComponent,
-    ParallaxDirective,
   ],
   imports: [
     HttpClientModule,

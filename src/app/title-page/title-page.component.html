@@ -1,19 +1,26 @@
-<div class="bg-container">
-  <img class="bg-img terrace" src="../../assets/images/terrace-bass.jpg" appParallax [ratio]="-.5">
-  <img class="bg-img green-mill" src="../../assets/images/greenMill.jpg"appParallax [ratio]="-.5">
-  <img class="bg-img lincoln-hall" src="../../assets/images/IMG_0078.jpg" appParallax [ratio]="-.5">
+<div class="parallax-container">
+  <div class="background">
+    <img class="bg-img terrace" src="../../assets/images/terrace-bass.jpg">
+    <img class="bg-img green-mill" src="../../assets/images/greenMill.jpg">
+    <img class="bg-img lincoln-hall" src="../../assets/images/IMG_0078.jpg">
+  </div>
+  <div class="foreground">
+    <div>
+      <h1 class="main-title">
+        charlie palm
+      </h1>
+      <div class="page-container bio-container" #about>
+        <app-bio-page [dataLoader]="dataLoader"></app-bio-page>
+      </div>
+      <div class="page-container shows-container" #shows>
+        <app-shows-page [dataLoader]="dataLoader"></app-shows-page>
+      </div>
+      <div class="page-container contact-container" #contact>
+        <app-contact-page [dataLoader]="dataLoader"></app-contact-page>
+      </div>
+    </div>
+  </div>
 </div>
-<div>
-  <h1 class="main-title">
-    charlie palm
-  </h1>
-  <div class="page-container bio-container" #about>
-    <app-bio-page [dataLoader]="dataLoader"></app-bio-page>
-  </div>
-  <div class="page-container shows-container" #shows>
-    <app-shows-page [dataLoader]="dataLoader"></app-shows-page>
-  </div>
-  <div class="page-container contact-container" #contact>
-    <app-contact-page [dataLoader]="dataLoader"></app-contact-page>
-  </div>
-</div>
+<!--
+
+-->
