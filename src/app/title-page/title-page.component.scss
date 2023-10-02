@@ -1,21 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Trispace:wght@100&display=swap');
-
-.px-item {
-  --p-size: 50;
-  padding-top: 50rem;
-}
+$main-title-padding: 8rem;
 
 .main-title {
-  font-size: 5rem;
+  font-size: calc(24px * z-multiplier($foreground-z));
   font-family: 'Trispace', sans-serif;
   text-shadow: 2px 0 3 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
   font-style: italic;
   z-index: 1000000;
   text-shadow: 10px;
-  padding-top: .75vw;
+  padding-top: $main-title-padding;
   margin: auto;
-  padding-right: 1vw;
-  padding-top: 2rem;
+  padding-left: 1vw;
 }
 
 .subtitle {
@@ -46,9 +41,5 @@
 }
 
 .page-container {
-  margin-top: 100vh;
-}
-
-.second-img {
-  padding-top: 60rem;
+  margin-top: calc(80vh - $main-title-padding);
 }

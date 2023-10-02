@@ -4,6 +4,8 @@
   text-align: center;
   text-shadow: 4px 2px 10px black;
   padding-bottom: 3rem;
+  background-color: #161210;
+  margin-left: 0;
 }
 
 .bio-title {
@@ -23,10 +25,12 @@
   padding-top: 30%;
 }
 
-.bio-img {
+img {
+  height: 100%;
   width: 100%;
   opacity: 90%;
   min-width: 0;
+  //transform: translateZ(3px) !important;
 }
 
 .bio-table {
@@ -37,6 +41,7 @@
   th, td {
     padding-left: 4rem;
     padding-top: 2rem;
+    font-size: 12px;
   }
   .image-cell {
     width: 45%;
