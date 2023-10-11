@@ -2,7 +2,6 @@
 $main-title-padding: 8rem;
 
 .main-title {
-  font-size: calc(24px * z-multiplier($foreground-z));
   font-family: 'Trispace', sans-serif;
   text-shadow: 2px 0 3 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
   font-style: italic;

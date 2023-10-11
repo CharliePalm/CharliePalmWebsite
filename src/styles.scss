@@ -1,8 +1,10 @@
 $perspective: 8px;
 $perspective-val: 8;
 $p-font-size: 12px;
-$foreground-z: 5px;
-$background-z: 0px;
+$foreground-z: 4px;
+$foreground-z-val: 4;
+$background-z: -2.5px;
+$background-z-val: -2.5;
 $foreground-font-size: calc(z-multiplier($foreground-z) * $p-font-size);
 
 html {
@@ -27,16 +29,13 @@ body {
   margin: 0;
 }
 
-@function relative-window-size($z) {
-  @return 100% * z-multiplier($z);
+@function perspective-scale($z) {
+  @return ($perspective-val - $z) / $perspective-val;
 }
 
-@function z-multiplier($z) {
-  @return if($z > 0, calc(1 / $z), calc(-1 * $z));
-}
 
 .bg-img {
-  height: 100vh;
+  height: 100%;
 }
 
 // shared
@@ -98,16 +97,17 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  transform: translateZ($background-z);
+  margin-top: 40rem;
+  padding-left: 10rem;
+  transform: translateZ($background-z) scale(perspective-scale($background-z-val));
 }
 
 .foreground {
   margin-top: auto;
-  margin-bottom: 50px;
   transform-origin: 0;
-  transform: translateZ($foreground-z);
-  width: relative-window-size(4);
-  font-size: calc(z-multiplier($foreground-z) * $p-font-size);
+  margin-left: 0;
+  padding-left: 0;
+  transform: translateZ($foreground-z) scale(perspective-scale($foreground-z-val));
 }
 
 // mobile transformations
