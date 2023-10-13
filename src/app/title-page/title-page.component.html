@@ -1,14 +1,22 @@
 <div class="parallax-container">
-  <div class="foreground">
-    <h1 class="main-title">
-      charlie palm
-    </h1>
-  </div>
   <div class="background">
     <img class="bg-img terrace" src="../../assets/images/terrace-bass.jpg">
     <img class="bg-img green-mill" src="../../assets/images/greenMill.jpg">
     <img class="bg-img lincoln-hall" src="../../assets/images/IMG_0078.jpg">
   </div>
+
+  <!--
+  <div class="foreground">
+    <h1 class="main-title">
+      charlie palm
+      <table>
+        <tr>
+          <td><app-streaming-links></app-streaming-links><td>
+          <td><app-social-links></app-social-links></td>
+        </tr>
+      </table>
+    </h1>
+  </div>-->
   <div class="foreground page-container bio-container" #about>
     <app-bio-page [dataLoader]="dataLoader"></app-bio-page>
   </div>

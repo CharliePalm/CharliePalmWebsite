@@ -88,29 +88,28 @@ body {
   overflow-x: hidden;
   overflow-y: scroll;
   perspective: $perspective;
-  perspective-origin: 0%;
-  display: flex;
-  margin-top: 0;
+  perspective-origin: 0 0;
+  transform-style: preserve-3d;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .background {
   position: absolute;
   top: 0;
   left: 0;
-  margin-top: 40rem;
-  padding-left: 10rem;
+  transform-origin: 0 0;
+  z-index: -1000;
   transform: translateZ($background-z) scale(perspective-scale($background-z-val));
 }
 
 .foreground {
-  margin-top: auto;
-  transform-origin: 0;
-  margin-left: 0;
-  padding-left: 0;
+  transform-origin: 0 0;
+  z-index: $foreground-z;
   transform: translateZ($foreground-z) scale(perspective-scale($foreground-z-val));
 }
 
-// mobile transformations
+// mobile/bg-img transformations
 @media only screen and (max-width: 800px) {
   .bg-img {
     width: 110rem;
@@ -145,6 +144,7 @@ body {
     font-size: 1rem !important;
   }
 }
+
 
 
 // loading
