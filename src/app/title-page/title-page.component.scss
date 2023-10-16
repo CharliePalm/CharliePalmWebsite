@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Trispace:wght@100&display=swap');
-$main-title-padding: 14rem;
+$main-title-padding: 2rem;
 // base image
 .terrace {
-  width: 170vw;
+  width: 170rem;
   margin-left: -20rem;
 }
 
 table {
-  padding-left: 33rem;
+  padding-left: 32rem;
 }
 
 .main-title {
@@ -18,7 +18,7 @@ table {
   padding-top: $main-title-padding;
   padding-left: 0rem;
   width: 49rem;
-  margin: auto;
+  margin-left: 6rem;
   font-size: 100px;
 }
 
@@ -46,4 +46,13 @@ table {
 
 .page-container {
   margin-top: 50rem;
+}
+
+.bg-img {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.bg-img.visible {
+  opacity: 1;
 }
