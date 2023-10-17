@@ -2,7 +2,7 @@ import { AfterViewInit, Component, EventEmitter, HostListener, Input, OnInit, Ou
 import { MatSidenav } from '@angular/material/sidenav';
 import { DataLoader } from '../../assets/data/data';
 import { State } from '../app.model';
-import { Subscription, fromEvent } from 'rxjs';
+import { Subscription, fromEvent, tap } from 'rxjs';
 import { trigger } from '@angular/animations';
 
 @Component({
@@ -17,22 +17,29 @@ export class TitlePageComponent implements OnInit, AfterViewInit {
   public images = document.getElementsByClassName('bg-img');
   public state = State;
   public isCollapsed = false;
-
+  public baseShowsHeight = 700;
+  public showsHeight = 700;
   navigate(state: State) {
     this.goToState.emit(state);
   }
   
   ngOnInit() {
-    document.querySelector('.parallax-container')?.addEventListener('wheel', (e) => {
-        //e.preventDefault(); // Prevent default scroll behavior
-        this.onWindowScroll();
-    });
+    // can't add a host listener because of the overflow-x property
+    //document.querySelector('.parallax-container')?.addEventListener('wheel', (e) => {
+    //    this.onWindowScroll();
+    //});
     this.windowSizeCheck();
   }
 
   ngAfterViewInit(): void {
-    this.onWindowScroll();
     this.windowSizeCheck();
+    this.dataLoader.loadGigs().pipe(
+      tap((gigs) => this.baseShowsHeight = this.baseShowsHeight + gigs.length * 33),
+    ).subscribe();
+  }
+
+  getShowsBlockHeight(): number {
+    return this.baseShowsHeight;
   }
 
   public goToShows() {
@@ -45,6 +52,7 @@ export class TitlePageComponent implements OnInit, AfterViewInit {
   }
 
   @HostListener("window:resize", []) windowSizeCheck() {
+    // add edit to shows height here
     if (window.innerWidth <= 800) {
       this.isCollapsed = true;
     } else {

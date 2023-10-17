@@ -4,25 +4,17 @@
   text-align: center;
   text-shadow: 4px 2px 10px black;
   padding-bottom: 3rem;
-  background-color: #161210;
   margin-left: 0;
 }
 
 .bio-title {
-  font-size: calc(3vw + 1rem);
+  font-size: 90px;
   font-family: 'Trispace', sans-serif;
   font-style: italic;
-  z-index: 1000000;
   text-shadow: 10px;
   padding-top: .5em;
   line-height: 5rem;
   text-align: left;
-}
-
-.return-btn-bio {
-  display: inline-block;
-  text-align: left;
-  padding-top: 30%;
 }
 
 img {
@@ -37,11 +29,11 @@ img {
   align-items: center;
   padding-right: 10vw;
   padding-left: 10vw;
-  line-height: 1rem;
+  line-height: 4rem;
   th, td {
     padding-left: 4rem;
     padding-top: 2rem;
-    font-size: 12px;
+    font-size: 18px;
   }
   .image-cell {
     width: 45%;
@@ -59,3 +51,30 @@ img {
   }
 }
 
+@media only screen and (max-width: 2000px) {
+  .bio-table {
+    th, td {
+      font-size: 16px;
+    }
+  }
+  .bio-title {
+    font-size: 70px;
+  }
+}
+
+@media only screen and (max-width: 1725px) {
+  .bio-table {
+    th, td {
+      padding-left: 1rem;
+    }
+    padding-right: 125px;
+    padding-left: 125px;
+  }
+}
+
+@media only screen and (max-width: 1540px) {
+  .bio-table {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+}

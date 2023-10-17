@@ -3,7 +3,7 @@
 .container {
   text-align: center;
   text-shadow: 4px 2px 10px black;
-  background-color: black;
+  // background-color: black;
   padding-bottom: 2rem;
   padding-top: 1rem;
   width: 100%;
@@ -42,4 +42,9 @@
 .loader {
   text-align: center;
   font-size: 5rem;
+}
+
+.no-gigs {
+  font-size: 32px;
+  padding-top: 32px;
 }

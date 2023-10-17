@@ -5,10 +5,11 @@
     <div><img class="bg-img lincoln-hall" src="../../assets/images/IMG_0078.jpg" id="bg-img"></div>
   </div>
 
+
   <div class="foreground">
     <h1 class="main-title">
       charlie palm
-      <table>
+      <table class="links-table">
         <tr>
           <td><app-streaming-links></app-streaming-links><td>
           <td><app-social-links></app-social-links></td>
@@ -16,10 +17,12 @@
       </table>
     </h1>
   </div>
-  <div class="foreground page-container bio-container" #about>
+  <div class="bg-block-bio middle-ground"></div>
+  <div class="foreground bio-container" #about>
     <app-bio-page [dataLoader]="dataLoader"></app-bio-page>
   </div>
-  <div class="foreground page-container shows-container" #shows>
+  <div class="bg-block-shows middle-ground" [style.height]="getShowsBlockHeight() + 'px'"></div>
+  <div class="foreground shows-container" [style.margin-top]="(-1 * getShowsBlockHeight() - 75) + 'px'" #shows>
     <app-shows-page [dataLoader]="dataLoader"></app-shows-page>
   </div>
   <div class="foreground page-container contact-container" #contact>

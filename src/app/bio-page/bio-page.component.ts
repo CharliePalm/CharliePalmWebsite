@@ -31,10 +31,10 @@ export class BioPageComponent implements OnInit {
   }
 
   singleColumn(): boolean {
-    return this.innerWidth < 1250 
+    return this.innerWidth < 1285; 
   }
 
   getBottomColSpan(): number {
-    return this.singleColumn() ? 1 : 2 
+    return this.singleColumn() ? 1 : 2 ;
   }
 }

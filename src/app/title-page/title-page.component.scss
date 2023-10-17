@@ -1,12 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Trispace:wght@100&display=swap');
-$main-title-padding: 2rem;
-// base image
-.terrace {
-  width: 170rem;
-  margin-left: -20rem;
+$main-title-padding: 4rem;
+$page-container-padding: 65rem;
+$bio-block-height: 1200px;
+$shows-block-height: 800px;
+
+:export {
+  showsBlockHeight: $shows-block-height;
 }
 
-table {
+// base image width/positioning (for wide screens)
+.terrace {
+  width: 3400px;
+  margin-left: -10rem;
+}
+
+.green-mill {
+  padding-top: 100px;
+  width: 3000px
+}
+
+.lincoln-hall {
+  padding-top: 5rem;
+  width: 4000px;
+}
+
+.links-table {
   padding-left: 32rem;
 }
 
@@ -18,7 +36,7 @@ table {
   padding-top: $main-title-padding;
   padding-left: 0rem;
   width: 49rem;
-  margin-left: 6rem;
+  margin-left: 20rem;
   font-size: 100px;
 }
 
@@ -33,11 +51,8 @@ table {
 }
 
 .bio-container {
+  margin-top: calc(-1 * $bio-block-height - 50px);
   padding-bottom: 8rem;
-}
-
-.green-mill {
-  //padding-top: calc(85rem - 45vw);
 }
 
 .contact-container {
@@ -45,14 +60,99 @@ table {
 }
 
 .page-container {
-  margin-top: 50rem;
+  margin-top: $page-container-padding;
 }
 
-.bg-img {
-  opacity: 0;
-  transition: opacity 0.5s;
+.shows-container {
+  margin-top: calc(-1 * $shows-block-height - 150px);
 }
 
-.bg-img.visible {
-  opacity: 1;
+.bg-block-bio {
+  margin-top: 70rem;
+  z-index: -10;
+  height: $bio-block-height;
+  background-color: #161210;
+}
+
+.bg-block-shows {
+  margin-top: 60rem;
+  z-index: -10;
+  height: $shows-block-height;
+  background-color: #161210;
+}
+
+
+// resizes
+
+@media only screen and (max-width: 1600px) {
+  .terrace {
+    width: 2800px;
+  }
+  .green-mill {
+    width: 2500px
+  }
+  .main-title {
+    padding-top: calc($main-title-padding - 1rem);
+    font-size: 90px;
+  }
+  .links-table {
+    padding-left: 28rem;
+  }
+  .bg-block-bio {
+    margin-top: 53rem;
+  }
+  .bg-block-shows {
+    margin-top: 38rem;
+  }
+}
+
+@media only screen and (max-width: 1390px) {
+  .terrace {
+    margin-left: -20rem;
+  }
+  .green-mill {
+    margin-left: -40rem;
+  }
+  .main-title {
+    margin-left: 8rem;
+  }
+}
+
+@media only screen and (max-width: 1283px) {
+  .bg-block-bio {
+    height: calc($bio-block-height + 500px);
+  }
+  .bio-container {
+    margin-top: calc(-1 * ($bio-block-height + 500px) - 50px);
+  }
+  .green-mill {
+    padding-top: 500px;
+  }
+  .bg-block-shows {
+    margin-top: 20rem;
+  }
+  .shows-container {
+    margin-top: calc(-1 * $shows-block-height - 150px) !important;
+  }
+}
+
+@media only screen and (max-width: 1090px) {
+  .terrace {
+    margin-left: -40rem;
+  }
+}
+
+@media only screen and (min-width: 751px) {
+  .parallax-container {
+    overflow-x: hidden !important;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .terrace {
+
+  }
+  .parallax-container { // bug here, parallax not disabling for mobile
+    overflow-x: scroll !important;
+  }
 }

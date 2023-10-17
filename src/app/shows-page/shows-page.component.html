@@ -1,15 +1,15 @@
 <!--app-bg-img [imgSrc]="'../../assets/images/0B8B2E8C-BB9A-43F5-A40F-246E863EF5D9.JPG'"></app-bg-img!-->
 <ng-container>
   <div class="container" *ngIf="gigs$ | async as gigs; else loading">
+    <h1 class="title">
+      upcoming shows
+    </h1>
     <ng-container *ngIf="!gigs.length">
-      <div class="centered">
+      <div class="centered no-gigs">
         no gigs on the calendar for now - check back soon!
       </div>
     </ng-container>
     <ng-container *ngIf="gigs.length">
-      <h1 class="title">
-        upcoming shows
-      </h1>
       <table class="show-table">
         <tr class="row-label">
           <td>

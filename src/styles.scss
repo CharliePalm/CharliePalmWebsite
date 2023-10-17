@@ -3,9 +3,11 @@ $perspective-val: 8;
 $p-font-size: 12px;
 $foreground-z: 3px;
 $foreground-z-val: 3;
-$background-z: -2.5px;
-$background-z-val: -2.5;
+$background-z: -1.5px;
+$background-z-val: -1.5;
 $foreground-font-size: calc(z-multiplier($foreground-z) * $p-font-size);
+$mg-z: 2px;
+$mg-z-val: 2;
 
 html {
   min-height: 100%;
@@ -23,14 +25,14 @@ td {
 }
 
 body {
-  overflow-x: hidden; /* Hide horizontal scrollbar */
+  //overflow-x: hidden; /* Hide horizontal scrollbar */
   min-height: 100%; min-width: 100%;
   padding: 0;
   margin: 0;
 }
 
 @function perspective-scale($z) {
-  @return ($perspective-val - $z) / $perspective-val;
+  @return calc(($perspective-val - $z) / $perspective-val);
 }
 
 
@@ -80,25 +82,12 @@ body {
   font-size: 28px;
 }
 
-// image animations
-.bg-img {
-  -webkit-animation: animat_show 0.8s;
-  animation: animat_show 0.8s;
-  visibility: visible !important;
-}
-
-@-webkit-keyframes animat_show{
-  0%{opacity:0}
-  100%{opacity:1}
-}
-
 // parallax transformations
 .parallax-container {
   position: relative;
   width: 100%;
   height: 100%;
   overflow-x: hidden;
-  overflow-y: scroll;
   perspective: $perspective;
   perspective-origin: 0 0;
   transform-style: preserve-3d;
@@ -117,6 +106,12 @@ body {
   transform-origin: 0 0;
   z-index: $foreground-z;
   transform: translateZ($foreground-z) scale(perspective-scale($foreground-z-val));
+}
+
+.middle-ground {
+  transform-origin: 0 0;
+  z-index: $mg-z;
+  transform: translateZ($mg-z) scale(perspective-scale($mg-z-val));
 }
 
 // mobile/bg-img transformations
@@ -174,4 +169,10 @@ body {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+@media only screen and (max-width:700px) {
+  .parallax-container {
+    overflow-x: auto !important;
+  }
 }
