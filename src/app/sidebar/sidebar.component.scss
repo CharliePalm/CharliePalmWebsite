@@ -33,8 +33,9 @@ table {
 .links-table {
   padding-top: 40px;
   &.mobile {
+    padding-top: 0px;
     position: absolute;
-    bottom: 4dvh;
+    bottom: calc(100vh - 100dvh + 30px);
     left: 50%;
     transform: translateX(-50%);
   }
@@ -132,6 +133,14 @@ table {
   .sidebar-toggle-button {
     top: 8vw;
     right: 5vw !important;
+    &.active {
+      .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+      }
+      .bar:nth-child(3) {
+        transform: rotate(45deg) translate(-4px, -6px);
+      }
+    }
   }
   .bar {
     width: min(7vw, 18px) !important;
