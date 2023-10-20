@@ -34,7 +34,7 @@ table {
   padding-top: 40px;
   &.mobile {
     position: absolute;
-    bottom: calc(env(safe-area-inset-bottom) + 30px);
+    bottom: 4dvh;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -130,6 +130,11 @@ table {
     }
   }
   .sidebar-toggle-button {
-    top: 6.6vw;
+    top: 8vw;
+    right: 5vw !important;
+  }
+  .bar {
+    width: min(7vw, 18px) !important;
+    height: 1px !important;
   }
 }

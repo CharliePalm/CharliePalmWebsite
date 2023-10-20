@@ -10,8 +10,8 @@ export class DataLoader {
   private bio: Observable<string[]>;
 
   constructor(private http: HttpClient) {
-    this.bio = this.loadBio();
-    this.gigs = this.loadGigs();
+    this.bio = this.loadMockBio(); //this.loadBio();
+    this.gigs = this.loadMockGigs(); // this.loadGigs();
     this.gigs.subscribe();
     this.bio.subscribe();
   }
