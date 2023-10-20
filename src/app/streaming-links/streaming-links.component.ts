@@ -11,7 +11,7 @@ export class StreamingLinksComponent implements OnInit {
     this.images = [
       {
         src: '../../assets/images/icons8-spotify-32.png',
-        link: 'https://open.spotify.com/artist/3zlaQJdTTg0CyoW693Hovo',
+        link: 'https://open.spotify.com/artist/5m6HwRHQBzSeOMf5MDvMeL?si=su4fhTAkQJeRWj5HmLvfnw',
       },
       {
         src: '../../assets/images/icons8-apple-logo-32.png',
@@ -19,7 +19,7 @@ export class StreamingLinksComponent implements OnInit {
       },
       {
         src: '../../assets/images/icons8-youtube-logo-32.png',
-        link: 'https://www.youtube.com/channel/UCNyryoz0caIMXEnqFPFiOCA',
+        link: 'https://www.youtube.com/channel/UC-T8b7k1hYf2RVjaJa77RwA',
       },
     ];
   }
