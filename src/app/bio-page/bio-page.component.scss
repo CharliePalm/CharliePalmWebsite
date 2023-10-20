@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Trispace:wght@100&display=swap');
+@import '../../styles.scss';
 
 .container {
   text-align: center;
   text-shadow: 4px 2px 10px black;
   padding-bottom: 3rem;
   margin-left: 0;
+  background-color: $background-color;
 }
 
 .bio-title {
@@ -22,18 +24,25 @@ img {
   width: 100%;
   opacity: 90%;
   min-width: 0;
+  max-height: 1200px;
+  max-width: 1200px;
   //transform: translateZ(3px) !important;
+}
+
+.bio-img {
+  padding-left: auto;
+  padding-right: 0;
+  text-align: center;
 }
 
 .bio-table {
   align-items: center;
   padding-right: 10vw;
   padding-left: 10vw;
-  line-height: 4rem;
   th, td {
     padding-left: 4rem;
     padding-top: 2rem;
-    font-size: 18px;
+    line-height: 50px;
   }
   .image-cell {
     width: 45%;
@@ -62,7 +71,7 @@ img {
   }
 }
 
-@media only screen and (max-width: 1725px) {
+@media only screen and (max-width: 1730px) {
   .bio-table {
     th, td {
       padding-left: 1rem;
@@ -76,5 +85,20 @@ img {
   .bio-table {
     padding-right: 0px;
     padding-left: 0px;
+  }
+}
+
+@media only screen and (max-width: 1286px) {
+  .bio-title {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .bio-table {
+    td {
+      font-size: 14px !important;
+      line-height: 32px !important;
+    }
   }
 }

@@ -1,19 +1,35 @@
-
-<button mat-icon-button (click)="toggleSidebar()">
-    <mat-icon *ngIf="sidenav && !sidenav.opened">
-        menu
-    </mat-icon>
-    <mat-icon *ngIf="sidenav && sidenav.opened">
-        close
-    </mat-icon>
+<button
+  class="sidebar-toggle-button"
+  [ngClass]="{ active: expanded }"
+  (click)="toggleSidebar()"
+>
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
 </button>
 
-<mat-sidenav-container>
-    <mat-sidenav>
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <div class="content mat-elevation-z8">
-            Main content here!
-        </div>
-    </mat-sidenav-content>
-</mat-sidenav-container>
+<aside class="sidebar" [ngClass]="{open : expanded, closed : !expanded, mobile : isMobile, noscroll : (this.expanded && this.isMobile)}">
+    <table class="scroll-table desktop" *ngIf="!isMobile">
+        <tr>
+            <td><i [ngClass]="{open : expanded, closed : !expanded}" (click)="scroll(options.about)">about</i></td>
+            <td>•</td>
+            <td><i [ngClass]="{open : expanded, closed : !expanded}" (click)="scroll(options.shows)">shows</i></td>
+            <td>•</td>
+            <td><i [ngClass]="{open : expanded, closed : !expanded}" (click)="scroll(options.contact)">contact</i></td>
+        </tr>
+    </table>
+    <table *ngIf="isMobile" class="scroll-table mobile">
+        <tr><td><i [ngClass]="{open : expanded, closed : !expanded}" (click)="scroll(options.about)">about</i></td></tr>
+        <tr><td class="dot">•</td></tr>
+        <tr><td><i [ngClass]="{open : expanded, closed : !expanded}" (click)="scroll(options.shows)">shows</i></td></tr>
+        <tr><td class="dot">•</td></tr>
+        <tr><td><i [ngClass]="{open : expanded, closed : !expanded}" (click)="scroll(options.contact)">contact</i></td></tr>
+    </table>
+    <table class="links-table" [ngClass]="{mobile : isMobile}">
+        <tr>
+            <td><i><app-streaming-links></app-streaming-links></i><td>
+            <td><i><app-social-links></app-social-links></i></td>
+        </tr>
+    </table>
+</aside>
+  

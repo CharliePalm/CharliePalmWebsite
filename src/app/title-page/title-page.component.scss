@@ -1,17 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Trispace:wght@100&display=swap');
 $main-title-padding: 4rem;
 $page-container-padding: 65rem;
-$bio-block-height: 1200px;
-$shows-block-height: 800px;
-
-:export {
-  showsBlockHeight: $shows-block-height;
-}
 
 // base image width/positioning (for wide screens)
 .terrace {
   width: 3400px;
   margin-left: -10rem;
+}
+
+.footer-spacer {
+  height: 40vh;
 }
 
 .green-mill {
@@ -20,12 +18,14 @@ $shows-block-height: 800px;
 }
 
 .lincoln-hall {
-  padding-top: 5rem;
+  padding-top: 15rem;
   width: 4000px;
 }
 
 .links-table {
-  padding-left: 32rem;
+  margin-left: auto;
+  margin-right: 2.5rem;
+  padding-top: .4rem;
 }
 
 .main-title {
@@ -51,38 +51,26 @@ $shows-block-height: 800px;
 }
 
 .bio-container {
-  margin-top: calc(-1 * $bio-block-height - 50px);
+  margin-top: 1100px;
   padding-bottom: 8rem;
 }
 
 .contact-container {
   width: 100%;
-}
-
-.page-container {
-  margin-top: $page-container-padding;
+  z-index: 10000;
+  margin-top: 10rem;
 }
 
 .shows-container {
-  margin-top: calc(-1 * $shows-block-height - 150px);
+  margin-top: calc(500px + 4vw);
 }
 
-.bg-block-bio {
-  margin-top: 70rem;
-  z-index: -10;
-  height: $bio-block-height;
-  background-color: #161210;
+.sidebar-container {
+  position: absolute;
+  object-position: 80vw, 0, 0, 0;
 }
 
-.bg-block-shows {
-  margin-top: 60rem;
-  z-index: -10;
-  height: $shows-block-height;
-  background-color: #161210;
-}
-
-
-// resizes
+// media queries
 
 @media only screen and (max-width: 1600px) {
   .terrace {
@@ -96,13 +84,16 @@ $shows-block-height: 800px;
     font-size: 90px;
   }
   .links-table {
-    padding-left: 28rem;
+    margin-right: 7rem;
   }
-  .bg-block-bio {
-    margin-top: 53rem;
+  .bio-container {
+    margin-top: 650px;
   }
-  .bg-block-shows {
-    margin-top: 38rem;
+  .shows-container {
+    margin-top: 350px;
+  }
+  .contact-container {
+    margin-top: 400px;
   }
 }
 
@@ -118,41 +109,82 @@ $shows-block-height: 800px;
   }
 }
 
-@media only screen and (max-width: 1283px) {
-  .bg-block-bio {
-    height: calc($bio-block-height + 500px);
-  }
-  .bio-container {
-    margin-top: calc(-1 * ($bio-block-height + 500px) - 50px);
-  }
+@media only screen and (max-width: 1284px) {
   .green-mill {
     padding-top: 500px;
   }
   .bg-block-shows {
     margin-top: 20rem;
   }
-  .shows-container {
-    margin-top: calc(-1 * $shows-block-height - 150px) !important;
+  .contact-container {
+    margin-top: 300px;
   }
 }
 
 @media only screen and (max-width: 1090px) {
+  .bg-img {
+    min-height: 550px;
+  }
   .terrace {
-    margin-left: -40rem;
+    margin-left: -530px;
+    width: 2800px;
+  }
+  .green-mill, .lincoln-hall {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    width: auto;
+    height: auto;
+    max-height: 1000px;
+  }
+  .green-mill {
+    margin-left: -10rem;
+  }
+  .lincoln-hall {
+    margin-left: -20rem;
+  }
+  .main-title {
+    margin-left: 0;
+    margin-top: 0;
+    padding-top: 20px;
+  }
+  .links-table {
+    padding-left: 10px;
+  }
+  .bio-container {
+    padding-top: 650px;
+  }
+  .shows-container {
+    margin-top: 0 !important;
+  }
+  .contact-container {
+    margin-top: -25rem;
   }
 }
 
-@media only screen and (min-width: 751px) {
-  .parallax-container {
-    overflow-x: hidden !important;
-  }
-}
+// mobile:
 
-@media only screen and (max-width: 750px) {
-  .terrace {
 
+@media screen and (max-width: 850px) {
+  $left-margin: calc(20vw - 40vh);
+  .background {
+    min-width: 100%;
   }
-  .parallax-container { // bug here, parallax not disabling for mobile
-    overflow-x: scroll !important;
+  .bg-img, .img-container {
+    min-width: 100%;
+    max-height: 100vh !important;
+    width: auto !important;
+    height: auto !important;
+    margin-left: min($left-margin, 0px);
+  }
+  .main-title {
+    font-size: 10vw;
+    padding-left: 10px;
+  }
+  .bio-container {
+    padding-top: 0 !important;
+    margin-top: 100vh;
+  }
+  .lincoln-hall {
+    margin-left: min(calc(20vw - 20vh), 0px);
   }
 }

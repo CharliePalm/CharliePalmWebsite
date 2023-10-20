@@ -1,6 +1,6 @@
 $perspective: 8px;
 $perspective-val: 8;
-$p-font-size: 12px;
+$p-font-size: 18px;
 $foreground-z: 3px;
 $foreground-z-val: 3;
 $background-z: -1.5px;
@@ -8,13 +8,16 @@ $background-z-val: -1.5;
 $foreground-font-size: calc(z-multiplier($foreground-z) * $p-font-size);
 $mg-z: 2px;
 $mg-z-val: 2;
+$text-color: #ebedf5;
+
+$background-color: #161210;
 
 html {
   min-height: 100%;
   min-width: 100%;
-  background: grey;
+  background: $background-color;
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-  color: #ebedf5;
+  color: $text-color;
   z-index: -100000 !important;
   scroll-behavior: smooth;
 }
@@ -25,10 +28,14 @@ td {
 }
 
 body {
-  //overflow-x: hidden; /* Hide horizontal scrollbar */
-  min-height: 100%; min-width: 100%;
   padding: 0;
+
   margin: 0;
+}
+
+.no-scroll {
+  height: 100% !important;
+  overflow: hidden !important;
 }
 
 @function perspective-scale($z) {
@@ -43,8 +50,7 @@ body {
 // shared
 
 .header {
-  //background-color: #dbccaf; lighter
-  background-color: #9b8e74; // darker
+  background-color: #161210;
   top: 0; right: 0; bottom: 0; left: 0;
   position: absolute;
   width: 100%;
@@ -54,29 +60,13 @@ body {
 .hover {
   cursor: pointer;
   text-shadow: 2px 0 3 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000 !important;
+  opacity: 70%;
+  transition: all .15s ease-in;
+  &:hover {
+    opacity: 100%;
+  }
 }
 
-.text-hover {
-  font-style: italic;
-  font-size: 3rem;
-}
-
-.text-hover:hover {
-  font-size: 20px;
-  font-weight: bold;
-  font-style: italic;
-}
-
-.back-text-hover {
-  font-style: italic;
-  position: fixed;
-  font-size: 24px;
-}
-
-.back-text-hover:hover{
-  font-size: 32px;
-  font-weight: bold;
-}
 
 .return-btn {
   font-size: 28px;
@@ -85,57 +75,30 @@ body {
 // parallax transformations
 .parallax-container {
   position: relative;
+  z-index: 0;
   width: 100%;
   height: 100%;
   overflow-x: hidden;
-  perspective: $perspective;
-  perspective-origin: 0 0;
-  transform-style: preserve-3d;
+  &.sidebar {
+    overflow: hidden; // prevent scrolling when sidebar is active
+  }
 }
+
+.parallax-container
 
 .background {
   position: absolute;
   top: 0;
   left: 0;
-  transform-origin: 0 0;
   z-index: -1000;
-  transform: translateZ($background-z) scale(perspective-scale($background-z-val));
 }
 
 .foreground {
-  transform-origin: 0 0;
   z-index: $foreground-z;
-  transform: translateZ($foreground-z) scale(perspective-scale($foreground-z-val));
 }
 
 .middle-ground {
-  transform-origin: 0 0;
   z-index: $mg-z;
-  transform: translateZ($mg-z) scale(perspective-scale($mg-z-val));
-}
-
-// mobile/bg-img transformations
-@media only screen and (max-width: 800px) {
-  .bg-img {
-    width: 110rem;
-  }
-  .terrace {
-    object-position: -32rem 0rem !important;
-  }
-  .lincoln-hall {
-    object-position: 0rem 0rem !important;
-  }
-  .green-mill {
-    object-position: -15rem 0rem !important;
-    //width: 70rem;
-  }
-
-  .main-title {
-    font-size: 3.5rem !important;
-    text-align: right;
-    padding-top: 1rem !important;
-    padding-right: 1rem !important;
-  }
 }
 
 @media only screen and (min-width: 2400px) {
@@ -144,13 +107,42 @@ body {
   }
 }
 
-@media only screen and (max-width: 550px) {
-  .title .main-title {
-    font-size: 1rem !important;
+// add parallax at 1091
+@media (min-width: 1091px) {
+  .parallax-container {
+    perspective: $perspective;
+    perspective-origin: 0 0;
+    transform-style: preserve-3d;
+  }
+
+  .background {
+    transform-origin: 0 0;
+    transform: translateZ($background-z) scale(perspective-scale($background-z-val));
+  }
+
+  .foreground {
+    transform-origin: 0 0;
+    transform: translateZ($foreground-z) scale(perspective-scale($foreground-z-val));
+  }
+
+  .middle-ground {
+    transform-origin: 0 0;
+    transform: translateZ($mg-z) scale(perspective-scale($mg-z-val));
   }
 }
 
+// mobile/bg-img transformations
+@media only screen and (max-width: 800px) {
+  td {
+    font-size: 14px !important;
+  }
+}
 
+@media only screen and (max-width: 1570px) {
+  td {
+    font-size: 16px !important;
+  }
+}
 
 // loading
 
@@ -169,10 +161,4 @@ body {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
-}
-
-@media only screen and (max-width:700px) {
-  .parallax-container {
-    overflow-x: auto !important;
-  }
 }
