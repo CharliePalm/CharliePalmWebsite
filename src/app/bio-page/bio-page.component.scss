@@ -20,17 +20,15 @@
 }
 
 img {
-  height: 100%;
   width: 100%;
   opacity: 90%;
   min-width: 0;
   max-height: 1200px;
-  max-width: 1200px;
-  //transform: translateZ(3px) !important;
+  object-fit: cover;
+  //transform: translateZ(3px) !important; TODO: change parallax scrolling for image
 }
 
 .bio-img {
-  padding-left: auto;
   padding-right: 0;
   text-align: center;
 }

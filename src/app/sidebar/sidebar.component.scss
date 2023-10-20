@@ -34,7 +34,7 @@ table {
   padding-top: 40px;
   &.mobile {
     position: absolute;
-    bottom: 60px;
+    bottom: calc(env(safe-area-inset-bottom) + 30px);
     left: 50%;
     transform: translateX(-50%);
   }
