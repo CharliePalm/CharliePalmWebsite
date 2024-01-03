@@ -1,6 +1,6 @@
-# PersonalWebsite
+# CharliePalmWebsite
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.4.
+This is the angular project for my music career. You can see it live at charliepalm.com
 
 ## Development server
 
