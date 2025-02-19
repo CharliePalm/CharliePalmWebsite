@@ -4,6 +4,8 @@ import { Gig } from "./data.model";
 import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
 import { Injectable } from "@angular/core";
 
+const JUNE_ID = 'e17b5580-90c1-705e-c925-c4c5fc95f771'
+
 @Injectable()
 export class DataLoader {
   private gigs: Observable<Gig[]>;
@@ -25,24 +27,15 @@ export class DataLoader {
   }
 
   public loadGigs(): Observable<Gig[]> {
-    return this.http.get<any>('https://api.github.com/repos/CharliePalm/PsuedoAPI/contents/charlieGigs.json').pipe(
-      switchMap((response) => {
-        return this.http.get<Gig[]>(response.download_url);
-      }),
-      map((gigs) => {
-        const todayGig: Gig = { date: new Date() };
-        return gigs
-        .map((g) => {
-          return {
-            ...g,
-            date: new Date(g.date),
-          };
-        })
-        .sort(this.compareDates)
-        .filter((gig: Gig) => {
-          return this.compareDates(gig, todayGig) === 1;
-        });
-      }),
+    return this.http.get<Gig[]>(
+      `https://yhcok26mbf.execute-api.us-east-2.amazonaws.com/Prod/client_query?client_id=${JUNE_ID}`
+    ).pipe(
+      map((gigs) => gigs.map(
+        (g) => ({
+          ...g,
+          date: new Date(g.date),
+        })).sort(this.compareDates),
+      ),
       catchError((e) => {
         return [];
       }),
@@ -53,85 +46,6 @@ export class DataLoader {
     return this.http.get<any>('https://api.github.com/repos/CharliePalm/PsuedoAPI/contents/charlieBio.json').pipe(
       switchMap((response) => {
         return this.http.get<string[]>(response.download_url);
-      }),
-      catchError((e) => {
-        return [];
-      }),
-    );
-  }
-
-  loadMockGigs(): Observable<Gig[]> {
-    return of([
-      {
-        "description": "charlie with jack johnson and henry ptacek",
-        "date": "June 15 2024",
-        "time": "7-9pm",
-        "venue": "leopolds",
-        "bandName": "charlie palm trio"
-      },
-      {
-        "description": "panchromatic steel at the terrace",
-        "date": "June 21 2024",
-        "time": "12pm",
-        "venue": "memorial union terrace",
-        "bandName": "panchromatic steel"
-      },
-      {
-        "description": "monona community festival",
-        "date": "July 4 2024",
-        "time": "1pm",
-        "venue": "winnequah park",
-        "bandName": "panchromatic steel"
-      },
-      {
-        "description": "andersonville midsommarfest",
-        "date": "June 21 2024",
-        "time": "2:30pm",
-        "venue": "foster to gregory on clark st, andersonville/chicago",
-        "bandName": "mama digdown's brass band"
-      },
-      {
-        "description": "digdown's back to back at the burr oak",
-        "date": "December 15 2023",
-        "time": "8:30",
-        "venue": "the burr oak, madison WI",
-        "bandName": "mama digdown's brass band"
-      },
-      {
-        "description": "digdown's back to back at the burr oak",
-        "date": "December 16 2023",
-        "time": "8:30pm",
-        "venue": "the burr oak, madison WI",
-        "bandName": "mama digdown's brass band"
-      },
-      {
-        "description": "digdown's back to back at the green mill",
-        "date": "February 16 2024",
-        "time": "8:30pm",
-        "venue": "the green mill, chicago IL",
-        "bandName": "mama digdown's brass band"
-      },
-      {
-        "description": "digdown's back to back at the green mill",
-        "date": "February 17 2024",
-        "time": "8:30pm",
-        "venue": "the green mill, chicago IL",
-        "bandName": "mama digdown's brass band"
-      }
-    ]).pipe(
-      map((gigs) => {
-        const todayGig: Gig = { date: new Date() };
-        return gigs
-        .map((g) => {
-          return {
-            ...g,
-            date: new Date(g.date),
-          };
-        })
-        .sort(this.compareDates)
-        .filter((gig: Gig) => {
-          return this.compareDates(gig, todayGig) === 1;
-        });
       }),
       catchError((e) => {
         return [];

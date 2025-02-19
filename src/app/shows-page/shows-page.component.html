@@ -37,13 +37,18 @@
               {{gig.time}}
             </td>
             <td>
-              {{gig.venue}}
+              {{gig.location}}
             </td>
             <td>
               {{gig.bandName}}
             </td>
             <td>
-              {{gig.cover ? gig.cover : 'FREE'}}
+              <ng-container *ngIf="!gig.ticketLink?.length">
+                {{gig.cover ? gig.cover : 'FREE'}}
+              </ng-container>
+              <ng-container *ngIf="gig.ticketLink?.length">
+                <a [href]="gig.ticketLink" class="">TICKETS</a>
+              </ng-container>
             </td>
           </tr>
         </ng-container>

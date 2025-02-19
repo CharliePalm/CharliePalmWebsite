@@ -1,10 +1,13 @@
 export interface Gig {
+  id: string;
+  clientId: string,
   description?: string;
   date: Date;
   time?: string;
-  venue?: string;
+  location?: string;
   bandName?: string;
   cover?: number;
-  openToPublic?: boolean;
-  opener?: string;
+  title: string,
+  image?: string,
+  ticketLink?: string;
 }
