@@ -9,8 +9,27 @@
   padding-top: 1rem;
   width: 100%;
   background-color: $background-color;
+  min-height: 100%
 }
 
+.grid-container {
+  height: 80%;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.grid-cols-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
 
 .title {
   font-size: calc(10px + 7vw);
@@ -21,14 +40,12 @@
 }
 
 .show-table {
-
   width: 90%;
-  td {
-    font-size: 24px;
-    text-align: center;
-    padding-top: 80px;
-    line-height: 22px;
-    overflow-wrap: break-all;
+  text-align: center;
+  font-size: 12px;
+  @media screen and (min-width: 700px) {
+    gap: 4rem;
+    font-size: 20px;
   }
 }
 
@@ -36,13 +53,6 @@
   position: absolute;
   text-align: center;
   width: 100%;
-}
-
-.show-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%
 }
 
 .centered {

@@ -1,7 +1,7 @@
 <!--app-bg-img [imgSrc]="'../../assets/images/0B8B2E8C-BB9A-43F5-A40F-246E863EF5D9.JPG'"></app-bg-img!-->
 <ng-container>
   <div class="container" *ngIf="gigs$ | async as gigs; else loading">
-    <h1 class="title absolute">
+    <h1 class="title">
       upcoming shows
     </h1>
     <ng-container *ngIf="!gigs.length">
@@ -9,53 +9,49 @@
         no gigs on the calendar for now - check back soon!
       </div>
     </ng-container>
-    <ng-container *ngIf="gigs.length">
-      <div class="show-container">
-        <table class="show-table">
-          <tr class="row-label">
-            <th>
-              DATE
-            </th>
-            <th>
-              TIME
-            </th>
-            <th>
-              LOCATION
-            </th>
-            <th>
-              BAND
-            </th>
-            <th>
-              COVER
-            </th>
-          </tr>
-          <ng-container *ngFor="let gig of gigs">
-            <tr>
-              <td>
-                {{gig.date | date : 'shortDate'}}
-              </td>
-              <td>
-                {{gig.time}}
-              </td>
-              <td>
-                {{gig.location}}
-              </td>
-              <td>
-                {{gig.bandName}}
-              </td>
-              <td>
-                <ng-container *ngIf="!gig.ticketLink?.length">
-                  {{gig.cover ? gig.cover : 'FREE'}}
-                </ng-container>
-                <ng-container *ngIf="gig.ticketLink?.length">
-                  <a [href]="gig.ticketLink" class="tickets">TICKETS</a>
-                </ng-container>
-              </td>
-            </tr>
-          </ng-container>
-        </table>
+    <div *ngIf="gigs.length" class="grid-container flex">
+      <div class="show-table grid grid-cols-5">
+        <ng-container>
+          <div>
+            DATE
+          </div>
+          <div>
+            TIME
+          </div>
+          <div>
+            LOCATION
+          </div>
+          <div>
+            BAND
+          </div>
+          <div>
+            COVER
+          </div>
+        </ng-container>
+        <ng-container *ngFor="let gig of gigs">
+          <div>
+            {{gig.date | date : 'shortDate'}}
+          </div>
+          <div>
+            {{gig.time}}
+          </div>
+          <div>
+            {{gig.location}}
+          </div>
+          <div>
+            {{gig.bandName}}
+          </div>
+          <div>
+            <ng-container *ngIf="!gig.ticketLink?.length">
+              {{gig.cover ? gig.cover : 'FREE'}}
+            </ng-container>
+            <ng-container *ngIf="gig.ticketLink?.length">
+              <a [href]="gig.ticketLink" class="tickets">TICKETS</a>
+            </ng-container>
+          </div>
+        </ng-container>
       </div>
-    </ng-container>
+    </div>
   </div>
 </ng-container>
 
