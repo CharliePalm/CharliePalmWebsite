@@ -12,12 +12,13 @@ export class AppComponent {
   title = 'Charlie Palm';
   public state = State;
   public currentState: State = this.state.title;
+  public loaded = false;
 
   constructor(
     private http: HttpClient,
     private store: Store,
   ) {
-    this.store.refresh();
+    this.store.getCalendarEvents().subscribe((event) => this.loaded = true);
     this.currentState = this.state.title;
   }
 

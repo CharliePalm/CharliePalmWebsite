@@ -1,7 +1,4 @@
 <!-- TODO: add page navigation -->
-<ng-container *ngIf="currentState===state.title">
-  <app-title-page (goToState)="goToPage($event)"></app-title-page>
-</ng-container>
-<ng-container *ngIf="currentState===state.shows">
-  <app-shows-page (back)="back($event)"></app-shows-page>
-</ng-container>
+<div [ngClass]="{'opacity-0': !loaded, 'opacity-100': loaded}" class="">
+  <app-title-page (goToState)="goToPage($event)" *ngIf="currentState===state.title" ></app-title-page>
+</div>
