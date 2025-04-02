@@ -44,7 +44,7 @@
             </div>
             <div>
               <ng-container *ngIf="!gig.ticketLink?.length">
-                {{gig.cover ? gig.cover : 'FREE'}}
+                {{gig.cover && $any(gig.cover) !== '0' ? gig.cover : 'FREE'}}
               </ng-container>
               <ng-container *ngIf="gig.ticketLink?.length">
                 <a [href]="gig.ticketLink" class="tickets">TICKETS</a>

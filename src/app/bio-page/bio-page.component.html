@@ -1,5 +1,5 @@
 <ng-container *ngIf="{ bio: bio$ | async, img: bioImage$ | async } as data; else loading" #about>
-  <div class="container">
+  <div class="container" *ngIf="data.bio">
     <table class="bio-table">
       <tr>
         <th colspan="2">
@@ -9,30 +9,30 @@
         </th>
       </tr>
       <tr *ngIf="!singleColumn()">
-        <td [attr.rowspan]="data.bio!.length - 1" class="image-cell">
+        <td [attr.rowspan]="data.bio.length - 1" class="image-cell">
           <img [src]="data.img">
         </td>
         <td>
-          {{data.bio![0]}}
+          {{data.bio[0]}}
         </td>
       </tr>
       <tr *ngIf="singleColumn()">
         <td>
-          {{data.bio![0]}}
+          {{data.bio[0]}}
         </td>
       </tr>
-      <ng-container *ngFor="let paragraph of data.bio!.slice(1, data.bio!.length - 1);">
+      <ng-container *ngFor="let paragraph of data.bio.slice(1, data.bio.length - 1);">
         <tr>
           <td>{{paragraph}}</td>
         </tr>
       </ng-container>
       <tr>
         <td [attr.colspan]="getBottomColSpan()">
-          {{data.bio![data.bio!.length-1]}}
+          {{data.bio[data.bio.length-1]}}
         </td>
       </tr>
       <tr *ngIf="singleColumn()">
-        <td [attr.rowspan]="data.bio!.length - 1" class="image-cell">
+        <td [attr.rowspan]="data.bio.length - 1" class="image-cell">
           <div class="bio-img">
             <img [src]="data.img">
           </div>

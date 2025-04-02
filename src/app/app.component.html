@@ -1,4 +1,7 @@
 <!-- TODO: add page navigation -->
-<div [ngClass]="{'opacity-0': !loaded, 'opacity-100': loaded}" class="">
-  <app-title-page (goToState)="goToPage($event)" *ngIf="currentState===state.title" ></app-title-page>
+<div [ngClass]="{'tw-opacity-0': !loaded, 'tw-opacity-100': loaded}" class="tw-transition-opacity tw-duration-500 tw-delay-300">
+  <div [ngClass]="{'tw-translate-y-0': fullyLoaded, 'tw-translate-y-10': !fullyLoaded}" class="tw-transition-transform tw-duration-700">
+    <app-title-page></app-title-page>
+  </div>
 </div>
+<app-loader [useLight]="true" size="lg" [loading]="!loaded"></app-loader>

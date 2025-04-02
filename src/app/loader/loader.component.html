@@ -1,0 +1,24 @@
+<div class="tw-flex tw-items-center tw-justify-center tw-ml-auto tw-mr-auto tw-mt-auto tw-w-8 tw-h-8" *ngIf="'sm' == size">
+    <div 
+        class="tw-absolute tw-inset-0 tw-flex tw-items-center tw-justify-center tw-transition-opacity tw-duration-500 tw-top-40"
+        [ngClass]="{'tw-opacity-0': !loading, 'tw-opacity-100': loading}"
+    >
+        <div class="tw-absolute tw-animate-spin tw-rounded-full tw-h-10 tw-w-10 tw-border-t-4 tw-border-backdrop"></div>
+    </div>
+</div>
+<div class="tw-flex tw-items-center tw-justify-center tw-ml-auto tw-mr-auto tw-mt-auto tw-w-24 tw-h-24" *ngIf="'md' == size || !size">
+    <div 
+        class="tw-absolute tw-inset-0 tw-flex tw-items-center tw-justify-center tw-transition-opacity tw-duration-500 tw-top-40"
+        [ngClass]="{'tw-opacity-0': !loading, 'tw-opacity-100': loading}"
+    >
+        <div class="tw-absolute tw-animate-spin tw-rounded-full tw-h-10 tw-w-10 tw-border-t-4 tw-border-backdrop"></div>
+    </div>
+</div>
+<div class="tw-absolute tw-top-0 tw-flex tw-items-center tw-justify-center tw-ml-auto tw-mr-auto tw-mt-auto tw-w-full tw-h-full -tw-z-50" *ngIf="'lg' == size">
+    <div 
+        class="tw-inset-0 tw-flex tw-items-center tw-justify-center tw-transition-opacity tw-duration-700"
+        [ngClass]="{'tw-opacity-0': !loading, 'tw-opacity-100': loading}"
+    >
+        <div class="tw-animate-spin tw-rounded-full tw-h-44 tw-w-44 tw-sm:h-72 tw-sm:w-72 tw-md:h-80 tw-md:w-80 tw-max-w-[92%] tw-border-t-4 tw-border-backdrop" [ngClass]="{ 'tw-border-white': useLight }"></div>
+    </div>
+</div>

@@ -12,6 +12,7 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ContactPageComponent,
     SidebarComponent,
     StreamingLinksComponent,
+    LoaderComponent,
   ],
   imports: [
     HttpClientModule,

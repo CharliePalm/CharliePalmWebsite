@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 $perspective: 8px;
 $perspective-val: 8;
 $p-font-size: 18px;
@@ -25,6 +29,11 @@ html {
 td {
   font-size: $p-font-size;
   line-height: 2.5rem;
+}
+
+img {
+  height: auto;
+  max-width: none;
 }
 
 body {
