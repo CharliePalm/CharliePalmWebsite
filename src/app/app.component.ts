@@ -1,9 +1,7 @@
-import { state } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { State } from './app.model';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { DataLoader } from 'src/assets/data/data';
 import { HttpClient } from '@angular/common/http';
+import { Store } from 'src/assets/data/store';
 
 @Component({
   selector: 'app-root',
@@ -11,16 +9,15 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
   title = 'Charlie Palm';
   public state = State;
   public currentState: State = this.state.title;
-  public dataLoader: DataLoader;
 
   constructor(
     private http: HttpClient,
+    private store: Store,
   ) {
-    this.dataLoader = new DataLoader(this.http);
+    this.store.refresh();
     this.currentState = this.state.title;
   }
 

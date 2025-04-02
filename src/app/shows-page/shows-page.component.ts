@@ -1,23 +1,22 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { State } from '../app.model';
-import { DataLoader } from '../../assets/data/data';
-import { Gig } from '../../assets/data/data.model';
+import { CalendarEvent } from '../../assets/data/data.model';
 import { Observable } from 'rxjs';
+import { Store } from 'src/assets/data/store';
 
 @Component({
   selector: 'app-shows-page',
   templateUrl: './shows-page.component.html',
   styleUrls: ['./shows-page.component.scss']
 })
-export class ShowsPageComponent implements OnInit {
+export class ShowsPageComponent {
   @Output() back: EventEmitter<State> = new EventEmitter<State>();
-  @Input() dataLoader!: DataLoader;
+  public gigs$: Observable<CalendarEvent[]> = this.store.getCalendarEvents();
 
-  public gigs$!: Observable<Gig[]>;
+  constructor(
+    private store: Store,
+  ) {}
 
-  ngOnInit() {
-    this.gigs$ = this.dataLoader.getGigs();
-  }
 
   goBack(): void {
     this.back.emit(State.shows);

@@ -1,6 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { State } from '../app.model';
-import { DataLoader } from '../../assets/data/data';
 
 @Component({
   selector: 'app-contact-page',
@@ -9,7 +8,6 @@ import { DataLoader } from '../../assets/data/data';
 })
 export class ContactPageComponent {
   @Output() back: EventEmitter<State> = new EventEmitter<State>();
-  @Input() dataLoader!: DataLoader;
 
   goBack(): void {
     this.back.emit(State.booking);

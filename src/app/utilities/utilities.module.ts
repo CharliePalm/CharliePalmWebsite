@@ -4,9 +4,6 @@ import { TitlePageComponent } from '../title-page/title-page.component';
 
 
 @NgModule({
-  declarations: [
-    TitlePageComponent,
-  ],
   imports: [],
   exports: [RouterModule],
 })

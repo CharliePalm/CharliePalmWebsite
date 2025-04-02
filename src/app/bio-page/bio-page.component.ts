@@ -1,7 +1,9 @@
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { State } from '../app.model';
-import { DataLoader } from '../../assets/data/data';
-import { Observable } from 'rxjs';
+import { OtherDataType } from '../../assets/data/data.model';
+import { map, Observable } from 'rxjs';
+import { Store } from 'src/assets/data/store';
+import { getS3PathFromImage } from 'src/assets/data/api.service';
 
 @Component({
   selector: 'app-bio-page',
@@ -11,13 +13,18 @@ import { Observable } from 'rxjs';
 
 export class BioPageComponent implements OnInit {
   @Output() back: EventEmitter<State> = new EventEmitter<State>();
-  @Input() dataLoader!: DataLoader;
-  innerWidth = 0;
 
-  public bio$!: Observable<string[]>;
+  constructor(private store: Store) {}
+
+  innerWidth = 0;
+  public bio$: Observable<string[]> = this.store.getOtherData().pipe(
+    map((data) => data.find((dat) => dat.title === OtherDataType.Bio)!.value.split('\n\n')),
+  );
+  public bioImage$ = this.store.getImages().pipe(
+    map((imgs) => getS3PathFromImage(imgs.find((img) => img.location === OtherDataType.Bio))!),
+  );
   
   ngOnInit(): void {
-    this.bio$ = this.dataLoader.getBio();
     this.innerWidth = window.innerWidth;
   }
 

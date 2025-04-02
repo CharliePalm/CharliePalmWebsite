@@ -1,7 +1,7 @@
 <!-- TODO: add page navigation -->
 <ng-container *ngIf="currentState===state.title">
-  <app-title-page (goToState)="goToPage($event)" [dataLoader]="dataLoader"></app-title-page>
+  <app-title-page (goToState)="goToPage($event)"></app-title-page>
 </ng-container>
 <ng-container *ngIf="currentState===state.shows">
-  <app-shows-page (back)="back($event)" [dataLoader]="dataLoader"></app-shows-page>
+  <app-shows-page (back)="back($event)"></app-shows-page>
 </ng-container>

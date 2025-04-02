@@ -1,5 +1,5 @@
-import { AfterContentInit, AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
-import { DataLoader } from '../../assets/data/data';
+import { AfterContentInit, Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
+import { Store } from '../../assets/data/store';
 import { State } from '../app.model';
 import { Subscription, tap } from 'rxjs';
 import { Option } from '../utilities/model';
@@ -11,7 +11,6 @@ import { Option } from '../utilities/model';
 })
 export class TitlePageComponent implements AfterContentInit {
   @Output() public goToState: EventEmitter<State> = new EventEmitter<State>();
-  @Input() public dataLoader!: DataLoader;
   
   public eventSubscription!: Subscription;
   public images = document.getElementsByClassName('bg-img');
@@ -30,8 +29,9 @@ export class TitlePageComponent implements AfterContentInit {
   }
 
   constructor(   
-      private elementRef: ElementRef,
-    ) {}
+    private elementRef: ElementRef,
+    private store: Store,
+  ) {}
   
   ngOnInit() {
     // TODO: fade in animation here
@@ -43,7 +43,7 @@ export class TitlePageComponent implements AfterContentInit {
 
   ngAfterContentInit(): void {
     this.windowSizeCheck();
-    this.dataLoader.loadGigs().pipe(
+    this.store.getCalendarEvents().pipe(
       tap((gigs) => {
         this.showsHeight = this.baseShowsHeight + gigs.length * 40;
       }),

@@ -1,4 +1,4 @@
-<ng-container *ngIf="bio$ | async as bio; else loading" #about>
+<ng-container *ngIf="{ bio: bio$ | async, img: bioImage$ | async } as data; else loading" #about>
   <div class="container">
     <table class="bio-table">
       <tr>
@@ -9,32 +9,32 @@
         </th>
       </tr>
       <tr *ngIf="!singleColumn()">
-        <td [attr.rowspan]="bio.length - 1" class="image-cell">
-          <img src="../../assets/images/derykgsesh.JPG">
+        <td [attr.rowspan]="data.bio!.length - 1" class="image-cell">
+          <img [src]="data.img">
         </td>
         <td>
-          {{bio[0]}}
+          {{data.bio![0]}}
         </td>
       </tr>
       <tr *ngIf="singleColumn()">
         <td>
-          {{bio[0]}}
+          {{data.bio![0]}}
         </td>
       </tr>
-      <ng-container *ngFor="let paragraph of bio.slice(1, bio.length - 1);">
+      <ng-container *ngFor="let paragraph of data.bio!.slice(1, data.bio!.length - 1);">
         <tr>
           <td>{{paragraph}}</td>
         </tr>
       </ng-container>
       <tr>
         <td [attr.colspan]="getBottomColSpan()">
-          {{bio[bio.length-1]}}
+          {{data.bio![data.bio!.length-1]}}
         </td>
       </tr>
       <tr *ngIf="singleColumn()">
-        <td [attr.rowspan]="bio.length - 1" class="image-cell">
+        <td [attr.rowspan]="data.bio!.length - 1" class="image-cell">
           <div class="bio-img">
-            <img src="../../assets/images/derykgsesh.JPG">
+            <img [src]="data.img">
           </div>
         </td>
       </tr>
@@ -47,6 +47,6 @@
 
 <ng-template #loading>
   <div>
-    loading bio...
+    loading data.bio...
   </div>
 </ng-template>
