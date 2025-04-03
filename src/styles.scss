@@ -2,18 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-$perspective: 8px;
-$perspective-val: 8;
 $p-font-size: 18px;
-$foreground-z: 3px;
-$foreground-z-val: 3;
-$background-z: -1.5px;
-$background-z-val: -1.5;
-$foreground-font-size: calc(z-multiplier($foreground-z) * $p-font-size);
-$mg-z: 2px;
-$mg-z-val: 2;
 $text-color: #ebedf5;
-
 $background-color: #161210;
 
 html {
@@ -33,12 +23,10 @@ td {
 
 img {
   height: auto;
-  max-width: none;
 }
 
 body {
   padding: 0;
-
   margin: 0;
 }
 
@@ -47,8 +35,8 @@ body {
   overflow: hidden !important;
 }
 
-@function perspective-scale($z) {
-  @return calc(($perspective-val - $z) / $perspective-val);
+@function perspective-scale($z-val) {
+  @return calc($perspective / ($perspective + $z-val));
 }
 
 
@@ -89,21 +77,8 @@ body {
   }
 }
 
-.parallax-container
-
-.background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1000;
-}
-
 .foreground {
-  z-index: $foreground-z;
-}
-
-.middle-ground {
-  z-index: $mg-z;
+  @apply relative z-20 min-h-[100vh];
 }
 
 @media only screen and (min-width: 2400px) {
@@ -112,58 +87,28 @@ body {
   }
 }
 
+$foreground-z: .1px;
+$foreground-z-val: .1;
+$background-z: -9px;
+$background-z-val: -9;
+$perspective: 10px;
+
 // add parallax at 1091
 @media (min-width: 1091px) {
   .parallax-container {
     perspective: $perspective;
-    perspective-origin: 0 0;
+    perspective-origin: center;
     transform-style: preserve-3d;
   }
 
-  .background {
-    transform-origin: 0 0;
-    transform: translateZ($background-z) scale(perspective-scale($background-z-val));
-  }
-
-  .foreground {
-    transform-origin: 0 0;
-    transform: translateZ($foreground-z) scale(perspective-scale($foreground-z-val));
-  }
-
-  .middle-ground {
-    transform-origin: 0 0;
-    transform: translateZ($mg-z) scale(perspective-scale($mg-z-val));
+  .parallax-background {
+    transform-style: preserve-3d;
+    transform-origin: center;
+    perspective-origin: center;
+    transform: translateZ($background-z) scale(calc(2.2));
   }
 }
 
-// mobile/bg-img transformations
-@media only screen and (max-width: 800px) {
-  td {
-    font-size: 14px !important;
-  }
-}
-
-@media only screen and (max-width: 1570px) {
-  td {
-    font-size: 16px !important;
-  }
-}
-
-// loading
-
-.loader {
-  border-top: 16px solid black;
-  border-right: 10px solid #8B8773;
-  border-bottom: 16px solid #5F2416;
-  border-left: 10px solid #685973;
-  width: 3rem;
-  height: 3rem;
-  -webkit-animation: spin 1s linear infinite; /* Safari */
-  animation: spin 1s linear infinite;
-  border-radius: 50%;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+.bg-img {
+  @apply min-h-[980px] min-w-full h-screen overflow-hidden object-cover;
 }

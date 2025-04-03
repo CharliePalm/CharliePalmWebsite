@@ -4,6 +4,7 @@ import { OtherDataType } from '../../assets/data/data.model';
 import { map, Observable } from 'rxjs';
 import { Store } from 'src/assets/data/store';
 import { getS3PathFromImage } from 'src/assets/data/api.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-bio-page',
@@ -21,7 +22,7 @@ export class BioPageComponent implements OnInit {
     map((data) => data.find((dat) => dat.title === OtherDataType.Bio)!.value.split('\n\n')),
   );
   public bioImage$ = this.store.getImages().pipe(
-    map((imgs) => getS3PathFromImage(imgs.find((img) => img.location === OtherDataType.Bio))!),
+    map((imgs) => environment.production ? getS3PathFromImage(imgs.find((img) => img.location === OtherDataType.Bio))! : imgs.find((img) => img.location === OtherDataType.Bio)!.value),
   );
   
   ngOnInit(): void {

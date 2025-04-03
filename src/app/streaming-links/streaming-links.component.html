@@ -1,11 +1,5 @@
-<ng-container>
-  <table class="socials-grid">
-    <tr>
-      <ng-container *ngFor="let image of images; let index=index">
-          <td class="hover">
-            <img (click)="navigate(index)" [src]="image.src"/>
-          </td>
-      </ng-container>
-    </tr>
-  </table>
-</ng-container>
+<div class="flex gap-1">
+  <div *ngFor="let image of images; let index=index" class="hover">
+    <img (click)="navigate(index)" [src]="image.src"/>
+  </div>
+</div>

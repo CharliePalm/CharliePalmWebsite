@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Trispace:wght@100&display=swap');
 @import '../../styles.scss';
 
-.container {
+.bio-container {
   text-align: center;
   text-shadow: 4px 2px 10px black;
   padding-bottom: 3rem;
@@ -10,93 +10,10 @@
 }
 
 .bio-title {
-  font-size: 90px;
   font-family: 'Trispace', sans-serif;
   font-style: italic;
   text-shadow: 10px;
-  padding-top: .5em;
   line-height: 5rem;
   text-align: left;
 }
 
-img {
-  width: 100%;
-  opacity: 90%;
-  min-width: 0;
-  max-height: 1200px;
-  object-fit: cover;
-  //transform: translateZ(3px) !important; TODO: change parallax scrolling for image
-}
-
-.bio-img {
-  padding-right: 0;
-  text-align: center;
-}
-
-.bio-table {
-  align-items: center;
-  padding-right: 10vw;
-  padding-left: 10vw;
-  th, td {
-    padding-left: 4rem;
-    padding-top: 2rem;
-    line-height: 50px;
-  }
-  .image-cell {
-    width: 45%;
-  }
-}
-
-@media(max-width: 786px) {
-  .bio-table {
-    padding: 0px 0px 0px 0px;
-    margin-left: 0;
-    td {
-      padding-left: .5rem;
-      padding-right: .5rem;
-    }
-  }
-}
-
-@media only screen and (max-width: 2000px) {
-  .bio-table {
-    th, td {
-      font-size: 16px;
-    }
-  }
-  .bio-title {
-    font-size: 70px;
-  }
-}
-
-@media only screen and (max-width: 1730px) {
-  .bio-table {
-    th, td {
-      padding-left: 1rem;
-    }
-    padding-right: 125px;
-    padding-left: 125px;
-  }
-}
-
-@media only screen and (max-width: 1540px) {
-  .bio-table {
-    padding-right: 0px;
-    padding-left: 0px;
-  }
-}
-
-@media only screen and (max-width: 1286px) {
-  .bio-title {
-    text-align: center;
-  }
-}
-
-@media only screen and (max-width: 750px) {
-  .bio-table {
-    td {
-      font-size: 14px !important;
-      line-height: 32px !important;
-    }
-  }
-}

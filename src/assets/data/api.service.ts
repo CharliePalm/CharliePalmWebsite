@@ -2,16 +2,20 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, of, shareReplay } from 'rxjs';
 import { CalendarEvent, CLIENT_ID, UnsortedDynamoItem, UploadType, Image } from './data.model';
+import { environment } from 'src/environments/environment';
+import { LocalDataStore } from './localData';
 
 @Injectable({
   providedIn: 'root',
 })
 export class APIService {
+  private localDataStore = new LocalDataStore();
   constructor(
     private http: HttpClient,
   ) {}
 
   public loadClientData(): Observable<UnsortedDynamoItem[]> {
+    if (!environment.production) { return of(this.localDataStore.mockData)}
     return this.http.get<UnsortedDynamoItem[]>(`https://yhcok26mbf.execute-api.us-east-2.amazonaws.com/Prod/client_query?client_id=${CLIENT_ID}`).pipe(
       shareReplay(),
       catchError((error) => {

@@ -14,6 +14,7 @@
     transform: translateY(30em);
     opacity: 100%;
     overflow: hidden !important;
+    z-index: 1;
   }
   &.closed {
     opacity: 20%;
@@ -89,7 +90,6 @@ table {
 
 
 .sidebar-toggle-button {
-  z-index: 10;
   position: absolute;
   top: 50px;
   right: 20px;
