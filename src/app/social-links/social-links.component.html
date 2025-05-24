@@ -1,5 +1,8 @@
 <div class="flex gap-1">
-  <div *ngFor="let image of images; let index=index" class="hover">
-    <img (click)="navigate(index)" [src]="image.src"/>
+  <div
+    *ngFor="let image of images; let index = index"
+    class="hover hover:scale-105"
+  >
+    <img (click)="navigate(index)" [src]="image.src" />
   </div>
 </div>

@@ -4,111 +4,28 @@
 
 $p-font-size: 18px;
 $text-color: #ebedf5;
-$background-color: #161210;
 
 html {
-  min-height: 100%;
-  min-width: 100%;
-  background: $background-color;
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-  color: $text-color;
-  z-index: -100000 !important;
+  background-color: #161210;
   scroll-behavior: smooth;
 }
 
-td {
-  font-size: $p-font-size;
-  line-height: 2.5rem;
-}
-
-img {
-  height: auto;
+@layer base {
+  @font-face {
+    font-family: Quixote;
+    font-weight: normal;
+    font-style: normal;
+    src: url("assets/fonts/TAYBoneQuixote.otf") format("opentype");
+  }
+  @font-face {
+    font-family: Bea;
+    font-weight: normal;
+    font-style: normal;
+    src: url("assets/fonts/TAYBea.otf") format("opentype");
+  }
 }
 
 body {
   padding: 0;
   margin: 0;
-}
-
-.no-scroll {
-  height: 100% !important;
-  overflow: hidden !important;
-}
-
-@function perspective-scale($z-val) {
-  @return calc($perspective / ($perspective + $z-val));
-}
-
-
-// shared
-
-.header {
-  background-color: #161210;
-  top: 0; right: 0; bottom: 0; left: 0;
-  position: absolute;
-  width: 100%;
-  height: 8rem;
-}
-
-.hover {
-  cursor: pointer;
-  text-shadow: 2px 0 3 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000 !important;
-  opacity: 70%;
-  transition: all .15s ease-in;
-  &:hover {
-    opacity: 100%;
-  }
-}
-
-
-.return-btn {
-  font-size: 28px;
-}
-
-// parallax transformations
-.parallax-container {
-  position: relative;
-  z-index: 0;
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-  &.sidebar {
-    overflow: hidden; // prevent scrolling when sidebar is active
-  }
-}
-
-.foreground {
-  @apply relative z-20 min-h-[100vh];
-}
-
-@media only screen and (min-width: 2400px) {
-  .bg-img {
-    width: 100%;
-  }
-}
-
-$foreground-z: .1px;
-$foreground-z-val: .1;
-$background-z: -9px;
-$background-z-val: -9;
-$perspective: 10px;
-
-// add parallax at 1091
-@media (min-width: 1091px) {
-  .parallax-container {
-    perspective: $perspective;
-    perspective-origin: center;
-    transform-style: preserve-3d;
-  }
-
-  .parallax-background {
-    transform-style: preserve-3d;
-    transform-origin: center;
-    perspective-origin: center;
-    transform: translateZ($background-z) scale(calc(2.2));
-  }
-}
-
-.bg-img {
-  @apply min-h-[980px] min-w-full h-screen overflow-hidden object-cover;
 }

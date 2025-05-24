@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Trispace:wght@100&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Trispace:wght@100&display=swap");
 $page-container-padding: 65rem;
 
 // base image width/positioning (for wide screens)
@@ -9,11 +9,11 @@ $page-container-padding: 65rem;
 
 /* Add this to your global CSS file */
 .parallax-bg {
-    @apply absolute inset-0 bg-[url("src/assets/images/greenMill.jpg")] bg-cover bg-center;
-    transform: translateZ(-1px) scale(2);
-    height: 200%;
-    top: -50%;
-    z-index: -1;
+  @apply absolute inset-0 bg-[url("src/assets/images/greenMill.jpg")] bg-cover bg-center;
+  transform: translateZ(-1px) scale(2);
+  height: 200%;
+  top: -50%;
+  z-index: -1;
 }
 
 .footer-spacer {
@@ -22,20 +22,12 @@ $page-container-padding: 65rem;
 
 .green-mill {
   padding-top: 100px;
-  width: 3000px
+  width: 3000px;
 }
 
 .lincoln-hall {
   padding-top: 15rem;
   width: 4000px;
-}
-
-.main-title {
-  font-family: 'Trispace', sans-serif;
-  text-shadow: 2px 0 3 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
-  font-style: italic;
-  text-shadow: 10px;
-  padding-left: 0rem;
 }
 
 .nav-table {

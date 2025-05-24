@@ -1,5 +1,5 @@
 export enum Option {
-    about,
-    shows,
-    contact,
+    About = 'About',
+    Shows = 'Shows',
+    Contact = 'Contact',
 }

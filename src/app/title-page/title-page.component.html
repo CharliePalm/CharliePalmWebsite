@@ -1,24 +1,13 @@
-<div class="parallax-container"  id="parallax-container">
-  <app-sidebar (scrollOutput)="scroll($event)" class="block md:hidden"></app-sidebar>
-  <!-- <div class="parallax-background">
+<!-- <div class="parallax-background">
     <div class="img-container"><img class="bg-img terrace" src="../../assets/images/terrace-bass.jpg"></div>
     <div class="img-container"><img class="bg-img green-mill" src="../../assets/images/greenMill.jpg"></div>
     <div class="img-container"><img class="bg-img lincoln-hall" src="../../assets/images/IMG_0078.jpg"></div>
     <div class="footer-spacer"></div>
   </div> -->
 
-  <img class="bg-img parallax-background" src="../../assets/images/terrace-bass.jpg">
-  <div class="absolute md:top-16 md:left-60 top-4 left-4">
-    <h1 class="main-title foreground text-6xl lg:text-[100px]">
-      charlie palm
-      <div class="justify-end mr-4 hidden md:flex pt-8">
-        <app-streaming-links></app-streaming-links>
-        <app-social-links class="ml-[7px]"></app-social-links>
-      </div>
-    </h1>
-  </div>
-  <app-bio-page id="about" class="foreground"></app-bio-page>
-  <img class="bg-img parallax-background" src="../../assets/images/greenMill.jpg">
-  <app-shows-page id="shows" class="foreground"></app-shows-page>
-  <img class="bg-img parallax-background" src="../../assets/images/IMG_0078.jpg">
+<div
+  class="hidden md:flex absolute top-0 left-0 w-screen h-screen justify-center items-end pb-6 -z-10"
+>
+  <app-streaming-links></app-streaming-links>
+  <app-social-links class="ml-[7px]"></app-social-links>
 </div>

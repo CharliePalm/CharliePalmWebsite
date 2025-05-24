@@ -12,37 +12,18 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./bio-page.component.scss']
 })
 
-export class BioPageComponent implements OnInit {
-  @Output() back: EventEmitter<State> = new EventEmitter<State>();
-
+export class BioPageComponent {
+  public loaded = false;
   constructor(private store: Store) {}
 
-  innerWidth = 0;
   public bio$: Observable<string[]> = this.store.getOtherData().pipe(
     map((data) => data.find((dat) => dat.title === OtherDataType.Bio)!.value.split('\n\n')),
   );
   public bioImage$ = this.store.getImages().pipe(
     map((imgs) => environment.production ? getS3PathFromImage(imgs.find((img) => img.location === OtherDataType.Bio))! : imgs.find((img) => img.location === OtherDataType.Bio)!.value),
   );
-  
-  ngOnInit(): void {
-    this.innerWidth = window.innerWidth;
-  }
 
-  goBack(): void {
-    this.back.emit(State.bio);
-  }
-
-  @HostListener('window:resize', ['$event'])
-  onResize(_event: any) {
-    this.innerWidth = window.innerWidth;
-  }
-
-  singleColumn(): boolean {
-    return this.innerWidth < 1285; 
-  }
-
-  getBottomColSpan(): number {
-    return this.singleColumn() ? 1 : 2 ;
+  onload(): void {
+    this.loaded = true;
   }
 }

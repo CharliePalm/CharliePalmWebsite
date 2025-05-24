@@ -282,7 +282,7 @@ In addition to performance, Charlie is an accomplished producer, having earned h
             "clientId": "e17b5580-90c1-705e-c925-c4c5fc95f771",
             "title": "Bio",
             "image": "My_Img.png",
-            "value": "../../assets/images/terrace-bass-abi.jpg",
+            "value": "../../assets/images/000026900038.jpg",
             "type": "Image",
             "location": "Bio",
         },

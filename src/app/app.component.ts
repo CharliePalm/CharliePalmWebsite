@@ -3,6 +3,8 @@ import { State } from './app.model';
 import { HttpClient } from '@angular/common/http';
 import { Store } from 'src/assets/data/store';
 import { map, switchMap, timer } from 'rxjs';
+import { Option } from './utilities/model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -16,12 +18,20 @@ export class AppComponent {
   public currentState: State = this.state.title;
   public loaded = false;
   public fullyLoaded = false;
+  public options = Object.keys(Option);
+  public option = Option;
+
+  public get selectedPage(): Option | '' {
+    console.log(this.router.url.slice(1) as Option || '');
+    return this.router.url.slice(1) as Option || '';
+  }
 
   constructor(
     private store: Store,
+    private router: Router,
   ) {
     this.store.getCalendarEvents().pipe(
-      switchMap((_) => timer(200)),
+      switchMap((_) => timer(400)),
       map((_) => this.loaded = true),
       switchMap((_) => timer(400)),
     ).subscribe((_) => this.fullyLoaded = true);

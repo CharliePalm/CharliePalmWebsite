@@ -1,7 +1,58 @@
-<!-- TODO: add page navigation -->
-<div [ngClass]="{'opacity-0': !loaded, 'opacity-100': loaded}" class="transition-opacity duration-500 delay-300">
-  <div [ngClass]="{'translate-y-0': fullyLoaded, 'translate-y-10': !fullyLoaded}" class="transition-transform duration-700">
-    <app-title-page></app-title-page>
+<div>
+  <img
+    [ngClass]="{
+      'opacity-0': !fullyLoaded || selectedPage !== '',
+      'opacity-100': fullyLoaded && selectedPage === '',
+    }"
+    src="../../assets/images/000026900034.jpg"
+    class="min-h-[980px] min-w-full max-w-none h-screen overflow-hidden -z-10 absolute object-cover -top-24 -right-32 lg:right-0 lg:top-0 transition-all duration-300"
+  />
+  <img
+    [ngClass]="{
+      'opacity-0': !fullyLoaded || selectedPage !== 'Contact',
+      'opacity-100': fullyLoaded && selectedPage === 'Contact',
+    }"
+    src="../../assets/images/terrace-bass.jpg"
+    class="min-h-[980px] min-w-full max-w-none h-screen overflow-hidden -z-10 absolute object-cover -right-32 xl+:right-0 lg:top-0 transition-all duration-300"
+  />
+</div>
+
+<div
+  [ngClass]="{ 'opacity-0': !loaded, 'opacity-100': loaded }"
+  class="transition-opacity duration-500 delay-300 h-screen overflow-hidden"
+>
+  <app-sidebar class="block sm:hidden"></app-sidebar>
+  <div
+    [ngClass]="{ 'translate-y-0': fullyLoaded, 'translate-y-10': !fullyLoaded }"
+    class="duration-700 h-screen"
+  >
+    <div class="">
+      <div
+        class="block sm:hidden p-4 text-3xl hover:cursor-pointer z-50"
+        routerLink="Home"
+      >
+        charlie<br />palm
+      </div>
+      <div
+        class="hidden sm:flex p-10 h-36 justify-center items-center text-gray-100 pt-28"
+      >
+        <h1 class="text-6xl w-1/2 hover:cursor-pointer z-50" routerLink="Home">
+          charlie <br />palm
+        </h1>
+        <div class="w-1/2 flex flex-col justify-end items-center">
+          <div *ngFor="let option of options" class="p-2 text-right w-full">
+            <a
+              class="duration-300 hover:cursor-pointer hover:underline z-50"
+              [routerLink]="option"
+            >
+              {{ option }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <router-outlet></router-outlet>
   </div>
 </div>
 <app-loader [useLight]="true" size="lg" [loading]="!loaded"></app-loader>

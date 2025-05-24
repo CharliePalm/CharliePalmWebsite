@@ -1,34 +1,41 @@
-<button
-  class="sidebar-toggle-button z-50 relative"
-  [ngClass]="{ active: expanded }"
-  (click)="toggleSidebar()"
->
-  <div class="bar"></div>
-  <div class="bar"></div>
-  <div class="bar"></div>
-</button>
+<div class="absolute top-4 right-4 flex justify-end sm:hidden h-0 z-50">
+  <button
+    class="relative w-10 h-10 flex flex-col justify-between items-center p-3 z-20"
+    (click)="toggleSidebar()"
+  >
+    <span
+      style="height: 2px; --tw-translate-y: 0.9rem"
+      class="block w-6 bg-white rounded transition-all duration-500 opacity-80"
+      [ngClass]="{ 'rotate-[225deg] translate-y-4': expanded }"
+    ></span>
+    <span
+      style="height: 2px"
+      class="block w-6 bg-white rounded transition-all duration-200"
+      [ngClass]="{ 'opacity-0': expanded, 'opacity-80': !expanded }"
+    ></span>
+    <span
+      style="height: 2px"
+      class="block w-6 bg-white rounded transition-all ease-in-out duration-500 opacity-80"
+      [ngClass]="{ '-rotate-[225deg]': expanded }"
+    ></span>
+  </button>
+</div>
 
-<aside class="sidebar" [ngClass]="{open : expanded, closed : !expanded, mobile : isMobile, noscroll : (this.expanded && this.isMobile)}">
-    <table class="scroll-table desktop" *ngIf="!isMobile">
-        <tr>
-            <td><i [ngClass]="{open : expanded, closed : !expanded}" (click)="scroll(options.about)">about</i></td>
-            <td>•</td>
-            <td><i [ngClass]="{open : expanded, closed : !expanded}" (click)="scroll(options.shows)">shows</i></td>
-            <td>•</td>
-            <td><i [ngClass]="{open : expanded, closed : !expanded}" (click)="scroll(options.contact)">contact</i></td>
-        </tr>
-    </table>
-    <table *ngIf="isMobile" class="scroll-table mobile">
-        <tr><td><i [ngClass]="{open : expanded, closed : !expanded}" (click)="scroll(options.about)">about</i></td></tr>
-        <tr><td class="dot">•</td></tr>
-        <tr><td><i [ngClass]="{open : expanded, closed : !expanded}" (click)="scroll(options.shows)">shows</i></td></tr>
-        <tr><td class="dot">•</td></tr>
-        <tr><td><i [ngClass]="{open : expanded, closed : !expanded}" (click)="scroll(options.contact)">contact</i></td></tr>
-    </table>
-    <table class="links-table" [ngClass]="{mobile : isMobile}">
-        <tr>
-            <td><i><app-streaming-links></app-streaming-links></i><td>
-            <td><i><app-social-links></app-social-links></i></td>
-        </tr>
-    </table>
-</aside>
+<div
+  class="bg-[#4d3e28] h-screen transition-all flex flex-col gap-10 justify-center items-center duration-300 absolute w-screen"
+  [ngClass]="{
+    'translate-y-0 opacity-90 z-10': expanded,
+    '-translate-y-[100vh] opacity-0 -z-50': !expanded,
+}"
+>
+  <a
+    *ngFor="let option of options"
+    [routerLink]="option"
+    (click)="toggleSidebar()"
+    >{{ option }}</a
+  >
+  <div class="bottom-4 left-[50%] mr-4">
+    <app-streaming-links></app-streaming-links>
+    <app-social-links class="ml-[7px]"></app-social-links>
+  </div>
+</div>
