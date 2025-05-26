@@ -134,7 +134,7 @@ module.exports = {
     },
     caretColor: ({ theme }) => theme("colors"),
     colors: ({ colors }) => ({
-      "off-white": "#efede7",
+      "off-white": "#f9f0de",
       "light-blue": "#8aa6c1",
       "med-blue": "#476b84",
       "dark-blue": "#222f3d",
