@@ -19,6 +19,7 @@ export class AppComponent {
   public options = Object.keys(Option);
   public option = Option;
   public selectedPage: Option | "" = "";
+  Option = Option;
 
   constructor(
     private store: Store,
