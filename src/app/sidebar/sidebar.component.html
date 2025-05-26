@@ -24,17 +24,22 @@
 <div
   class="bg-[#4d3e28] h-screen transition-all flex flex-col gap-10 justify-center items-center duration-300 absolute w-screen"
   [ngClass]="{
-    'translate-y-0 opacity-90 z-10': expanded,
+    'translate-y-0 z-10': expanded,
     '-translate-y-[100vh] opacity-0 -z-50': !expanded,
-}"
+  }"
 >
   <a
     *ngFor="let option of options"
     [routerLink]="option"
     (click)="toggleSidebar()"
-    >{{ option }}</a
+    [ngClass]="{
+      'hover:cursor-pointer hover:underline hover:opacity-100 opacity-90': selectedPage !== option,
+      'opacity-80 hover:cursor-default': selectedPage === option,
+    }"
   >
-  <div class="bottom-4 left-[50%] mr-4">
+    {{ option }}
+  </a>
+  <div class="bottom-4 left-[50%]">
     <app-streaming-links></app-streaming-links>
     <app-social-links class="ml-[7px]"></app-social-links>
   </div>

@@ -1,4 +1,3 @@
-<!--app-bg-img [imgSrc]="'../../assets/images/0B8B2E8C-BB9A-43F5-A40F-246E863EF5D9.JPG'"></app-bg-img!-->
 <ng-container *ngIf="gigs$ | async as gigs; else loading">
   <ng-container *ngIf="!gigs.length">
     <div class="absolute top-0 h-screen w-screen -z-10">
@@ -7,8 +6,8 @@
       </div>
     </div>
   </ng-container>
-  <div *ngIf="gigs.length" class="grid-container flex">
-    <div class="show-table grid grid-cols-5">
+  <div *ngIf="gigs.length" class="overflow-y-scroll pt-20 p-4 font-bea text-sm">
+    <div class="grid grid-cols-5 text-center gap-6">
       <ng-container>
         <div>DATE</div>
         <div>TIME</div>
@@ -34,7 +33,7 @@
             {{ gig.cover && $any(gig.cover) !== "0" ? gig.cover : "FREE" }}
           </ng-container>
           <ng-container *ngIf="gig.ticketLink?.length">
-            <a [href]="gig.ticketLink" class="tickets">TICKETS</a>
+            <a [href]="gig.ticketLink" class="hover:underline">TICKETS</a>
           </ng-container>
         </div>
       </ng-container>

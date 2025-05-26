@@ -1,29 +1,22 @@
-<div
-  *ngIf="{ bio: bio$ | async, img: bioImage$ | async } as data"
-  class="pt-10"
->
+<div *ngIf="{ bio: bio$ | async, img: bioImage$ | async } as data" class="pt-6">
   <div
     *ngIf="data.bio && data.img"
     [ngClass]="{
-      'opacity-0': !loaded
+      'opacity-0': !loaded,
     }"
     class="transition-all duration-500"
   >
     <div
       *ngFor="let chunk of data.bio; let index = index"
-      class="text-xs h-auto md:text-sm lg:text-md w-11/12 md:w-3/4 ml-auto mr-auto font-bea"
+      class="lg:text-md ml-auto mr-auto h-auto w-11/12 font-bea text-xs md:w-3/4 md:text-sm"
     >
-      <div
-        class="pr-6 max-w-[300px] md:max-w-[500px] lg:max-w-[600px] xl:max-w-[700px]"
-        *ngIf="index == 0 && data.img"
-      >
-        <img
-          [src]="data.img"
-          (load)="onload()"
-          class="text-wrap mr-auto ml-auto shadow-2xl shadow-black sm:m-6 sm:ml-4 sm:float-left rounded-xl"
-        />
-      </div>
       <div class="p-4">{{ chunk }}</div>
+      <img
+        *ngIf="index == 0 && data.img"
+        [src]="data.img"
+        (load)="onload()"
+        class="ml-auto mr-auto w-5/6 text-wrap rounded-xl shadow-2xl shadow-black sm:float-left sm:m-6 sm:ml-4 sm:max-w-[400px] md:max-w-[450px] lg:max-w-[600px] xl:max-w-[700px]"
+      />
     </div>
   </div>
 </div>

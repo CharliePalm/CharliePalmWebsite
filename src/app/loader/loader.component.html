@@ -1,24 +1,40 @@
-<div class="flex items-center justify-center ml-auto mr-auto mt-auto w-8 h-8" *ngIf="'sm' == size">
-    <div 
-        class="absolute inset-0 flex items-center justify-center transition-opacity duration-500 top-40"
-        [ngClass]="{'opacity-0': !loading, 'opacity-100': loading}"
-    >
-        <div class="absolute animate-spin rounded-full h-10 w-10 border-t-4 border-backdrop"></div>
-    </div>
+<div
+  class="-z-50 ml-auto mr-auto mt-auto flex h-8 w-8 items-center justify-center"
+  *ngIf="'sm' == size"
+>
+  <div
+    class="absolute inset-0 top-40 flex items-center justify-center transition-opacity duration-500"
+    [ngClass]="{ 'opacity-0': !loading, 'opacity-100': loading }"
+  >
+    <div
+      class="absolute h-10 w-10 animate-spin rounded-full border-t-4 border-backdrop"
+    ></div>
+  </div>
 </div>
-<div class="flex items-center justify-center ml-auto mr-auto mt-auto w-24 h-24" *ngIf="'md' == size || !size">
-    <div 
-        class="absolute inset-0 flex items-center justify-center transition-opacity duration-500 top-40"
-        [ngClass]="{'opacity-0': !loading, 'opacity-100': loading}"
-    >
-        <div class="absolute animate-spin rounded-full h-10 w-10 border-t-4 border-backdrop"></div>
-    </div>
+<div
+  class="-z-50 ml-auto mr-auto mt-auto flex h-24 w-24 items-center justify-center"
+  *ngIf="'md' == size || !size"
+>
+  <div
+    class="absolute inset-0 top-40 flex items-center justify-center transition-opacity duration-500"
+    [ngClass]="{ 'opacity-0': !loading, 'opacity-100': loading }"
+  >
+    <div
+      class="absolute h-10 w-10 animate-spin rounded-full border-t-4 border-backdrop"
+    ></div>
+  </div>
 </div>
-<div class="absolute top-0 flex items-center justify-center ml-auto mr-auto mt-auto w-full h-full -z-50" *ngIf="'lg' == size">
-    <div 
-        class="inset-0 flex items-center justify-center transition-opacity duration-700"
-        [ngClass]="{'opacity-0': !loading, 'opacity-100': loading}"
-    >
-        <div class="animate-spin rounded-full h-44 w-44 sm:h-72 sm:w-72 md:h-80 md:w-80 max-w-[92%] border-t-4 border-backdrop" [ngClass]="{ 'border-white': useLight }"></div>
-    </div>
+<div
+  class="absolute top-0 -z-50 ml-auto mr-auto mt-auto flex h-full w-full items-center justify-center"
+  *ngIf="'lg' == size"
+>
+  <div
+    class="inset-0 flex items-center justify-center transition-opacity duration-700"
+    [ngClass]="{ 'opacity-0': !loading, 'opacity-100': loading }"
+  >
+    <div
+      class="h-44 w-44 max-w-[92%] animate-spin rounded-full border-t-4 border-backdrop sm:h-72 sm:w-72 md:h-80 md:w-80"
+      [ngClass]="{ 'border-white': useLight }"
+    ></div>
+  </div>
 </div>

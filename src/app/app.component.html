@@ -1,53 +1,68 @@
-<div>
+<div class="absolute -right-32 bottom-0 -z-50 lg:right-0">
   <img
     [ngClass]="{
       'opacity-0': !fullyLoaded || selectedPage !== '',
       'opacity-100': fullyLoaded && selectedPage === '',
     }"
     src="../../assets/images/000026900034.jpg"
-    class="min-h-[980px] min-w-full max-w-none h-screen overflow-hidden -z-10 absolute object-cover -top-24 -right-32 lg:right-0 lg:top-0 transition-all duration-300"
-  />
-  <img
-    [ngClass]="{
-      'opacity-0': !fullyLoaded || selectedPage !== 'Contact',
-      'opacity-100': fullyLoaded && selectedPage === 'Contact',
-    }"
-    src="../../assets/images/terrace-bass.jpg"
-    class="min-h-[980px] min-w-full max-w-none h-screen overflow-hidden -z-10 absolute object-cover -right-32 xl+:right-0 lg:top-0 transition-all duration-300"
+    class="h-screen min-h-[980px] min-w-full max-w-none object-cover transition-all duration-300"
   />
 </div>
 
 <div
   [ngClass]="{ 'opacity-0': !loaded, 'opacity-100': loaded }"
-  class="transition-opacity duration-500 delay-300 h-screen overflow-hidden"
+  class="h-screen transition-opacity delay-300 duration-500"
 >
   <app-sidebar class="block sm:hidden"></app-sidebar>
   <div
     [ngClass]="{ 'translate-y-0': fullyLoaded, 'translate-y-10': !fullyLoaded }"
-    class="duration-700 h-screen"
+    class="z-50 h-screen duration-700"
   >
-    <div class="">
-      <div
-        class="block sm:hidden p-4 text-3xl hover:cursor-pointer z-50"
-        routerLink="Home"
+    <div
+      class="z-50 flex h-full items-baseline justify-end p-4 text-right align-text-bottom text-5xl italic sm:hidden"
+      *ngIf="selectedPage === ''"
+    >
+      <!--mobile home page only-->
+      <a routerLink="Home" class="mb-8 mt-auto hover:cursor-pointer"
+        >charlie<br />palm</a
       >
-        charlie<br />palm
+    </div>
+    <div
+      [ngClass]="{
+        'hidden sm:flex sm:flex-col lg:flex-row': selectedPage === '',
+        'flex flex-row': selectedPage !== '',
+      }"
+      class="z-50 items-center justify-center p-4 text-gray-100 sm:min-h-52 sm:p-8"
+    >
+      <div
+        [ngClass]="{
+          'hidden justify-end text-right text-4xl sm:flex lg:justify-start':
+            selectedPage === '',
+          'flex justify-start text-5xl sm:w-1/2': selectedPage !== '',
+        }"
+        class="z-50 w-full italic lg:w-1/2 lg:pt-0 lg:text-left lg:text-6xl"
+      >
+        <a class="hover:cursor-pointer" routerLink="Home">charlie <br />palm</a>
       </div>
       <div
-        class="hidden sm:flex p-10 h-36 justify-center items-center text-gray-100 pt-28"
+        class="hidden items-center justify-end sm:flex lg:pt-0"
+        [ngClass]="{
+          'w-1/2 flex-row': selectedPage !== '',
+          'w-full flex-col pt-8': selectedPage === '',
+        }"
       >
-        <h1 class="text-6xl w-1/2 hover:cursor-pointer z-50" routerLink="Home">
-          charlie <br />palm
-        </h1>
-        <div class="w-1/2 flex flex-col justify-end items-center">
-          <div *ngFor="let option of options" class="p-2 text-right w-full">
-            <a
-              class="duration-300 hover:cursor-pointer hover:underline z-50"
-              [routerLink]="option"
-            >
-              {{ option }}
-            </a>
-          </div>
+        <div *ngFor="let option of options" class="w-full p-2 text-right">
+          <a
+            [ngClass]="{
+              'opacity-90 hover:cursor-pointer hover:underline hover:opacity-100':
+                selectedPage !== option,
+              'opacity-80 hover:cursor-default': selectedPage === option,
+            }"
+            class="text-md z-50 duration-300 lg:text-lg"
+            [routerLink]="option"
+          >
+            {{ option }}
+          </a>
         </div>
       </div>
     </div>
