@@ -1,13 +1,16 @@
 <ng-container *ngIf="gigs$ | async as gigs; else loading">
   <ng-container *ngIf="!gigs.length">
-    <div class="absolute top-0 h-screen w-screen -z-10">
-      <div class="flex justify-center items-center opacity-60 italic h-full">
+    <div class="absolute top-0 -z-10 h-screen w-screen">
+      <div class="flex h-full items-center justify-center italic opacity-60">
         no gigs on the calendar for now - check back soon!
       </div>
     </div>
   </ng-container>
-  <div *ngIf="gigs.length" class="overflow-y-scroll pt-20 p-4 font-bea text-sm">
-    <div class="grid grid-cols-5 text-center gap-6">
+  <div
+    *ngIf="gigs.length"
+    class="overflow-y-scroll p-4 pt-20 font-bea text-xs sm:text-sm"
+  >
+    <div class="grid grid-cols-5 gap-6 text-center">
       <ng-container>
         <div>DATE</div>
         <div>TIME</div>
@@ -17,7 +20,7 @@
       </ng-container>
       <ng-container *ngFor="let gig of gigs">
         <div>
-          {{ gig.date | date : "shortDate" }}
+          {{ gig.date | date: "shortDate" }}
         </div>
         <div>
           {{ gig.time }}

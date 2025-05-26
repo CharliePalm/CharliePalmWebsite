@@ -3,6 +3,8 @@ import { Store } from "src/assets/data/store";
 import { map, switchMap, timer } from "rxjs";
 import { Option } from "./utilities/model";
 import { Router } from "@angular/router";
+import { inject } from "@vercel/analytics";
+import { environment } from "src/environments/environment";
 
 @Component({
   selector: "app-root",
@@ -22,6 +24,9 @@ export class AppComponent {
     private store: Store,
     private router: Router,
   ) {
+    if (environment.production) {
+      inject();
+    }
     this.store
       .getCalendarEvents()
       .pipe(
