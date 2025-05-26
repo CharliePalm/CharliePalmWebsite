@@ -21,9 +21,9 @@ export class SidebarComponent {
   options = Object.keys(Option);
   toggleSidebar = () => {
     this.expanded = !this.expanded;
-    timer(100).subscribe(() =>
-      document.getElementById("body")?.classList.toggle("bg-[#4d3e28]"),
-    );
+    // timer(100).subscribe(() =>
+    //   document.getElementById("body")?.classList.toggle("bg-[#4d3e28]"),
+    // );
   };
 
   constructor(private router: Router) {}
