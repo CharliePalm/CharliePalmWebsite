@@ -5,7 +5,7 @@
       'opacity-100': fullyLoaded && selectedPage === '',
     }"
     src="../../assets/images/000026900034.jpg"
-    class="inset-0 -mr-32 h-screen min-h-[980px] min-w-full max-w-none overflow-x-hidden object-cover transition-all duration-300"
+    class="inset-0 -mr-32 h-screen min-h-[800px] min-w-full max-w-none overflow-x-hidden object-cover transition-all duration-300"
   />
 </div>
 
@@ -23,7 +23,9 @@
       *ngIf="selectedPage === ''"
     >
       <!--mobile home page only-->
-      <a routerLink="Home" class="mb-8 mt-auto hover:cursor-pointer"
+      <a
+        routerLink="Home"
+        class="mb-[calc(env(safe-area-inset-bottom)+10px)] mt-auto hover:cursor-pointer"
         >charlie<br />palm</a
       >
     </div>
