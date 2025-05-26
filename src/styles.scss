@@ -25,7 +25,18 @@ html {
   }
 }
 
+@layer utilities {
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
 body {
   padding: 0;
   margin: 0;
+}
+
+.no-scroll {
+  overscroll-behavior: none;
+  touch-action: none;
 }

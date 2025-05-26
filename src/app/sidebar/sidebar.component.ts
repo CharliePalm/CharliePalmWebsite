@@ -9,6 +9,7 @@ import {
 } from "@angular/core";
 import { Option } from "../utilities/model";
 import { Router } from "@angular/router";
+import { timer } from "rxjs";
 
 @Component({
   selector: "app-sidebar",
@@ -18,7 +19,12 @@ import { Router } from "@angular/router";
 export class SidebarComponent {
   expanded = false;
   options = Object.keys(Option);
-  toggleSidebar = () => (this.expanded = !this.expanded);
+  toggleSidebar = () => {
+    this.expanded = !this.expanded;
+    timer(100).subscribe(() =>
+      document.getElementById("body")?.classList.toggle("bg-[#4d3e28]"),
+    );
+  };
 
   constructor(private router: Router) {}
   public get selectedPage(): Option | "" {

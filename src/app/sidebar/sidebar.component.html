@@ -1,31 +1,31 @@
-<div class="absolute top-4 right-4 flex justify-end sm:hidden h-0 z-50">
+<div class="absolute right-4 top-4 z-50 flex h-0 justify-end sm:hidden">
   <button
-    class="relative w-10 h-10 flex flex-col justify-between items-center p-3 z-20"
+    class="relative z-20 flex h-10 w-10 flex-col items-center justify-between p-3"
     (click)="toggleSidebar()"
   >
     <span
       style="height: 2px; --tw-translate-y: 0.9rem"
-      class="block w-6 bg-white rounded transition-all duration-500 opacity-80"
-      [ngClass]="{ 'rotate-[225deg] translate-y-4': expanded }"
+      class="block w-6 rounded bg-white opacity-80 transition-all duration-500"
+      [ngClass]="{ 'translate-y-4 rotate-[225deg]': expanded }"
     ></span>
     <span
       style="height: 2px"
-      class="block w-6 bg-white rounded transition-all duration-200"
+      class="block w-6 rounded bg-white transition-all duration-200"
       [ngClass]="{ 'opacity-0': expanded, 'opacity-80': !expanded }"
     ></span>
     <span
       style="height: 2px"
-      class="block w-6 bg-white rounded transition-all ease-in-out duration-500 opacity-80"
+      class="block w-6 rounded bg-white opacity-80 transition-all duration-500 ease-in-out"
       [ngClass]="{ '-rotate-[225deg]': expanded }"
     ></span>
   </button>
 </div>
 
 <div
-  class="bg-[#4d3e28] h-screen transition-all flex flex-col gap-10 justify-center items-center duration-300 absolute w-screen"
+  class="absolute flex h-[120dvh] w-screen flex-col items-center justify-center gap-10 bg-[#4d3e28] transition-all duration-300"
   [ngClass]="{
-    'translate-y-0 z-10': expanded,
-    '-translate-y-[100vh] opacity-0 -z-50': !expanded,
+    'z-10 translate-y-0': expanded,
+    '-z-50 -translate-y-[100dvh] opacity-0': !expanded,
   }"
 >
   <a
@@ -33,7 +33,8 @@
     [routerLink]="option"
     (click)="toggleSidebar()"
     [ngClass]="{
-      'hover:cursor-pointer hover:underline hover:opacity-100 opacity-90': selectedPage !== option,
+      'opacity-90 hover:cursor-pointer hover:underline hover:opacity-100':
+        selectedPage !== option,
       'opacity-80 hover:cursor-default': selectedPage === option,
     }"
   >

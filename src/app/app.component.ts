@@ -39,9 +39,18 @@ export class AppComponent {
     this.router.events.subscribe(() => {
       const page = this.router.url.slice(1) as Option | "";
       if (page === "" || page === Option.Contact) {
-        document.getElementById("body")?.classList.add("overflow-y-hidden");
+        document
+          .getElementById("body")
+          ?.classList.add("overflow-y-hidden", "no-scroll");
+        window.scroll({
+          top: 0,
+          left: 0,
+          behavior: "smooth",
+        });
       } else {
-        document.getElementById("body")?.classList.remove("overflow-y-hidden");
+        document
+          .getElementById("body")
+          ?.classList.remove("overflow-y-hidden", "no-scroll");
       }
       this.selectedPage = page;
     });

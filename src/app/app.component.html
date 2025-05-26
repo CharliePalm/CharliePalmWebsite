@@ -1,11 +1,13 @@
-<div class="absolute bottom-0 right-0 -z-50 overflow-x-hidden lg:-mr-0">
+<div
+  class="absolute bottom-0 right-0 -z-50 min-w-[100vw] overflow-x-hidden sm:bottom-0 lg:-mr-0"
+>
   <img
     [ngClass]="{
       'opacity-0': !fullyLoaded || selectedPage !== '',
       'opacity-100': fullyLoaded && selectedPage === '',
     }"
     src="../../assets/images/000026900034.jpg"
-    class="inset-0 -mr-32 h-screen min-h-[800px] min-w-full max-w-none overflow-x-hidden object-cover transition-all duration-300"
+    class="inset-0 -mr-32 h-dvh min-h-[800px] min-w-full max-w-none overflow-x-hidden object-cover transition-all duration-300"
   />
 </div>
 
@@ -19,15 +21,11 @@
     class="z-50 h-screen duration-700"
   >
     <div
-      class="z-50 flex h-full items-baseline justify-end p-4 text-right align-text-bottom text-5xl italic sm:hidden"
+      class="z-50 flex h-dvh items-end justify-end p-4 text-right align-text-bottom text-5xl italic sm:hidden"
       *ngIf="selectedPage === ''"
     >
       <!--mobile home page only-->
-      <a
-        routerLink="Home"
-        class="mb-[calc(env(safe-area-inset-bottom)+10px)] mt-auto hover:cursor-pointer"
-        >charlie<br />palm</a
-      >
+      <a routerLink="Home" class="hover:cursor-pointer">charlie<br />palm</a>
     </div>
     <div
       [ngClass]="{
