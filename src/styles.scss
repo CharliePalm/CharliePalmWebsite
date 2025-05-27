@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 html {
-  background-color: #161210;
   scroll-behavior: smooth;
 }
 
@@ -20,17 +19,6 @@ html {
     font-style: normal;
     src: url("assets/fonts/TAYBea.otf") format("opentype");
   }
-}
-
-@layer utilities {
-  .pb-safe {
-    padding-bottom: env(safe-area-inset-bottom);
-  }
-}
-
-body {
-  padding: 0;
-  margin: 0;
 }
 
 .no-scroll {
