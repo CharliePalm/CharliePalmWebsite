@@ -2,11 +2,12 @@
   class="absolute bottom-0 right-0 -z-50 min-w-[100vw] overflow-x-hidden sm:bottom-0 lg:-mr-0"
 >
   <img
+    src="https://client-uploads-877b7177.s3.us-east-2.amazonaws.com/e17b5580-90c1-705e-c925-c4c5fc95f771/SiteImage/title_bg.jpg"
     [ngClass]="{
       'opacity-0': !fullyLoaded || selectedPage !== '',
       'opacity-100': fullyLoaded && selectedPage === '',
     }"
-    src="../../assets/images/000026900034.jpg"
+    (load)="imageLoaded[0].next(true)"
     class="inset-0 -mr-32 h-dvh min-h-[800px] min-w-full max-w-none overflow-x-hidden object-cover transition-all duration-300"
   />
 </div>
@@ -19,6 +20,7 @@
       'opacity-100': fullyLoaded && selectedPage === Option.Contact,
     }"
     src="../../assets/images/IMG_0078.jpg"
+    (load)="imageLoaded[1].next(true)"
     class="inset-0 -mr-32 h-dvh min-h-[800px] min-w-full max-w-none overflow-x-hidden object-cover transition-all duration-300"
   />
 </div>

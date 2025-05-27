@@ -1,6 +1,13 @@
 import { Component } from "@angular/core";
 import { Store } from "src/assets/data/store";
-import { map, switchMap, timer } from "rxjs";
+import {
+  BehaviorSubject,
+  combineLatest,
+  filter,
+  map,
+  switchMap,
+  timer,
+} from "rxjs";
 import { Option } from "./utilities/model";
 import { Router } from "@angular/router";
 import { inject } from "@vercel/analytics";
@@ -20,6 +27,7 @@ export class AppComponent {
   public option = Option;
   public selectedPage: Option | "" = "";
   Option = Option;
+  imageLoaded = [new BehaviorSubject(false), new BehaviorSubject(false)];
 
   constructor(
     private store: Store,
@@ -32,6 +40,11 @@ export class AppComponent {
       .getCalendarEvents()
       .pipe(
         switchMap((_) => timer(400)),
+        switchMap((_) =>
+          combineLatest(this.imageLoaded).pipe(
+            filter((v) => v.every((v) => !!v)),
+          ),
+        ),
         map((_) => (this.loaded = true)),
         switchMap((_) => timer(400)),
       )
