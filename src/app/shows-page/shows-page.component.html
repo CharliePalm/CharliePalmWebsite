@@ -1,45 +1,45 @@
-<ng-container *ngIf="gigs$ | async as gigs; else loading">
-  <ng-container *ngIf="!gigs.length">
-    <div class="absolute top-0 -z-10 h-screen w-screen">
-      <div class="flex h-full items-center justify-center italic opacity-60">
-        no gigs on the calendar for now - check back soon!
+
+  <ng-container *ngIf="gigs$ | async as gigs; ">
+    <ng-container *ngIf="!gigs.length">
+      <div class="absolute top-0 -z-10 h-screen w-screen">
+        <div class="flex h-full items-center justify-center italic opacity-60">
+          no gigs on the calendar for now - check back soon!
+        </div>
+      </div>
+    </ng-container>
+    <div *ngIf="gigs.length" class="p-4 pt-20 font-bea text-xs sm:text-sm">
+      <div class="grid grid-cols-5 gap-6 text-center">
+        <ng-container>
+          <div>DATE</div>
+          <div>TIME</div>
+          <div>LOCATION</div>
+          <div>BAND</div>
+          <div>COVER</div>
+        </ng-container>
+        <ng-container *ngFor="let gig of gigs">
+          <div>
+            {{ gig.date | date: "shortDate" }}
+          </div>
+          <div>
+            {{ gig.time }}
+          </div>
+          <div>
+            {{ gig.location }}
+          </div>
+          <div>
+            {{ gig.bandName }}
+          </div>
+          <div>
+            <ng-container *ngIf="!gig.ticketLink?.length">
+              {{ gig.cover && $any(gig.cover) !== "0" ? gig.cover : "FREE" }}
+            </ng-container>
+            <ng-container *ngIf="gig.ticketLink?.length">
+              <a [href]="gig.ticketLink" class="hover:underline">TICKETS</a>
+            </ng-container>
+          </div>
+        </ng-container>
       </div>
     </div>
   </ng-container>
-  <div *ngIf="gigs.length" class="p-4 pt-20 font-bea text-xs sm:text-sm">
-    <div class="grid grid-cols-5 gap-6 text-center">
-      <ng-container>
-        <div>DATE</div>
-        <div>TIME</div>
-        <div>LOCATION</div>
-        <div>BAND</div>
-        <div>COVER</div>
-      </ng-container>
-      <ng-container *ngFor="let gig of gigs">
-        <div>
-          {{ gig.date | date: "shortDate" }}
-        </div>
-        <div>
-          {{ gig.time }}
-        </div>
-        <div>
-          {{ gig.location }}
-        </div>
-        <div>
-          {{ gig.bandName }}
-        </div>
-        <div>
-          <ng-container *ngIf="!gig.ticketLink?.length">
-            {{ gig.cover && $any(gig.cover) !== "0" ? gig.cover : "FREE" }}
-          </ng-container>
-          <ng-container *ngIf="gig.ticketLink?.length">
-            <a [href]="gig.ticketLink" class="hover:underline">TICKETS</a>
-          </ng-container>
-        </div>
-      </ng-container>
-    </div>
-  </div>
-</ng-container>
-<ng-template #loading>
-  <div class="centered flex text-lg">loading shows...</div>
-</ng-template>
+
+<ng-template #loading><app-loader ></app-loader></ng-template>

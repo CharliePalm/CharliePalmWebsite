@@ -1,86 +1,89 @@
-<div
-  class="absolute bottom-0 right-0 min-w-[100vw] overflow-x-hidden sm:bottom-0 lg:-mr-0"
->
-  <img
-    src="https://client-uploads-877b7177.s3.us-east-2.amazonaws.com/e17b5580-90c1-705e-c925-c4c5fc95f771/SiteImage/title_bg.jpg"
-    [ngClass]="{
-      'opacity-0': !fullyLoaded || selectedPage !== '',
-      'opacity-100': fullyLoaded && selectedPage === '',
-    }"
-    (load)="imageLoaded[0].next(true)"
-    class="inset-0 -mr-32 h-dvh min-h-[800px] min-w-full max-w-none overflow-x-hidden object-cover transition-all duration-300"
-  />
-</div>
-<div
-  class="absolute -left-[400px] min-w-[100vw] overflow-x-hidden sm:bottom-0 md:-left-36 lg:left-0 lg:-mr-0"
->
-  <img
-    [ngClass]="{
-      'opacity-0': !fullyLoaded || selectedPage !== Option.Contact,
-      'opacity-100': fullyLoaded && selectedPage === Option.Contact,
-    }"
-    src="../../assets/images/43BC5B67-3379-4EFE-83CF-1C62D98D2EC8_1_201_a.jpeg"
-    (load)="imageLoaded[1].next(true)"
-    class="inset-0 h-dvh min-h-[800px] min-w-full max-w-none overflow-x-hidden object-cover transition-all duration-300"
-  />
-</div>
-<div
-  [ngClass]="{ 'opacity-0': !loaded, 'opacity-100': loaded }"
-  class="h-screen transition-opacity delay-300 duration-500"
->
-  <app-sidebar class="block sm:hidden"></app-sidebar>
+<div class="overflow-x-hidden relative">
   <div
-    [ngClass]="{ 'translate-y-0': fullyLoaded, 'translate-y-10': !fullyLoaded }"
-    class="z-50 h-screen duration-700"
+    class="absolute bottom-0 right-0 min-w-[100vw] sm:bottom-0 lg:-mr-0"
   >
-    <div
-      class="z-50 flex h-dvh items-end justify-end p-4 text-right align-text-bottom text-5xl italic sm:hidden"
-      *ngIf="selectedPage === ''"
-    >
-      <!--mobile home page only-->
-      <a routerLink="Home" class="hover:cursor-pointer">charlie<br />palm</a>
-    </div>
-    <div
+    <img
+      src="https://client-uploads-877b7177.s3.us-east-2.amazonaws.com/e17b5580-90c1-705e-c925-c4c5fc95f771/SiteImage/title_bg.jpg"
       [ngClass]="{
-        'hidden sm:flex sm:flex-col lg:flex-row': selectedPage === '',
-        'flex flex-row': selectedPage !== '',
+        'opacity-0': !fullyLoaded || selectedPage !== '',
+        'opacity-100': fullyLoaded && selectedPage === '',
       }"
-      class="z-50 items-center justify-center p-4 sm:min-h-52 sm:p-8"
+      (load)="imageLoaded[0].next(true)"
+      class="inset-0 -mr-32 h-dvh min-h-[800px] min-w-full max-w-none object-cover transition-all duration-300"
+    />
+  </div>
+  <div
+    class="absolute -left-[400px] min-w-[100vw] sm:bottom-0 md:-left-36 lg:left-0 lg:-mr-0"
+  >
+    <img
+      [ngClass]="{
+        'opacity-0': !fullyLoaded || selectedPage !== Option.Contact,
+        'opacity-100': fullyLoaded && selectedPage === Option.Contact,
+      }"
+      src="../../assets/images/43BC5B67-3379-4EFE-83CF-1C62D98D2EC8_1_201_a.jpeg"
+      (load)="imageLoaded[1].next(true)"
+      class="inset-0 h-dvh min-h-[800px] min-w-full max-w-none object-cover transition-all duration-300"
+    />
+  </div>
+  <div
+    [ngClass]="{ 'opacity-0': !loaded, 'opacity-100': loaded }"
+    class="h-screen transition-opacity delay-300 duration-500"
+  >
+    <app-sidebar class="block sm:hidden"></app-sidebar>
+    <div
+      [ngClass]="{ 'translate-y-0': fullyLoaded, 'translate-y-10': !fullyLoaded }"
+      class="z-50 h-screen duration-700"
     >
       <div
-        [ngClass]="{
-          'hidden justify-end text-right text-4xl sm:flex lg:justify-start':
-            selectedPage === '',
-          'flex justify-start text-5xl sm:w-1/2': selectedPage !== '',
-        }"
-        class="z-50 w-full italic lg:w-1/2 lg:pt-0 lg:text-left lg:text-6xl"
+        class="z-50 flex h-dvh items-end justify-end p-4 text-right align-text-bottom text-5xl italic sm:hidden"
+        *ngIf="selectedPage === ''"
       >
-        <a class="hover:cursor-pointer" routerLink="Home">charlie <br />palm</a>
+        <!--mobile home page only-->
+        <a routerLink="Home" class="hover:cursor-pointer">charlie<br />palm</a>
       </div>
       <div
-        class="hidden items-center justify-end sm:flex lg:pt-0"
         [ngClass]="{
-          'w-1/2 flex-row': selectedPage !== '',
-          'w-full flex-col pt-8': selectedPage === '',
+          'hidden sm:flex sm:flex-col lg:flex-row': selectedPage === '',
+          'flex flex-row': selectedPage !== '',
         }"
+        class="z-50 items-center justify-center p-4 sm:min-h-52 sm:p-8"
       >
-        <div *ngFor="let option of options" class="w-full p-2 text-right">
-          <a
-            [ngClass]="{
-              'opacity-90 hover:cursor-pointer hover:underline hover:opacity-100':
-                selectedPage !== option,
-              'opacity-80 hover:cursor-default': selectedPage === option,
-            }"
-            class="text-md z-50 duration-300 lg:text-lg"
-            [routerLink]="option"
-          >
-            {{ option }}
-          </a>
+        <div
+          [ngClass]="{
+            'hidden justify-end text-right text-4xl sm:flex lg:justify-start':
+              selectedPage === '',
+            'flex justify-start text-5xl sm:w-1/2': selectedPage !== '',
+          }"
+          class="z-50 w-full italic lg:w-1/2 lg:pt-0 lg:text-left lg:text-6xl"
+        >
+          <a class="hover:cursor-pointer" routerLink="Home">charlie <br />palm</a>
+        </div>
+        <div
+          class="hidden items-center justify-end sm:flex lg:pt-0"
+          [ngClass]="{
+            'w-1/2 flex-row': selectedPage !== '',
+            'w-full flex-col pt-8': selectedPage === '',
+          }"
+        >
+          <div *ngFor="let option of options" class="w-full p-2 text-right">
+            <a
+              [ngClass]="{
+                'opacity-90 hover:cursor-pointer hover:underline hover:opacity-100':
+                  selectedPage !== option,
+                'opacity-80 hover:cursor-default': selectedPage === option,
+              }"
+              class="text-md z-50 duration-300 lg:text-lg"
+              [routerLink]="option"
+            >
+              {{ option }}
+            </a>
+          </div>
         </div>
       </div>
-    </div>
 
-    <router-outlet></router-outlet>
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>
+
 <app-loader [useLight]="true" size="lg" [loading]="!loaded"></app-loader>
