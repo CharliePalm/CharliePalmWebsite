@@ -23,18 +23,6 @@ export class APIService {
       }),
     );
   }
-
-  // todo: email list?
-  // public sendEmail(params: { subject: string, body: string }) {
-  //   if (!environment.production) return of(true);
-  //   return this.authService.getToken().pipe(
-  //     switchMap((token) => token ? this.http.post(this.url('email'), params, this.headers(token)) : of(undefined)),
-  //     catchError((error) => {
-  //       this.toastService.show('Error sending email request, please try again later', 'error');
-  //       return of(false);
-  //     }),
-  //   );
-  // }
 }
 
 export function getS3Path(pathToFile: string): string {
