@@ -1,25 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-streaming-links',
-  templateUrl: './streaming-links.component.html',
-  styleUrls: ['./streaming-links.component.css']
+  selector: "app-streaming-links",
+  templateUrl: "./streaming-links.component.html",
+  styleUrls: ["./streaming-links.component.css"],
 })
 export class StreamingLinksComponent implements OnInit {
   public images: any[] = [];
   public ngOnInit(): void {
     this.images = [
       {
-        src: '../../assets/images/icons8-spotify-32.png',
-        link: 'https://open.spotify.com/artist/5m6HwRHQBzSeOMf5MDvMeL?si=su4fhTAkQJeRWj5HmLvfnw',
+        src: "../../assets/images/icons8-spotify-32.png",
+        link: "https://open.spotify.com/artist/0J5nDtveXpAr8knXSPvjn2?si=hp6IIXewT5aso8mBPbxUdg",
       },
       {
-        src: '../../assets/images/icons8-apple-logo-32.png',
-        link: 'https://music.apple.com/us/artist/sunline/1560591453',
+        src: "../../assets/images/icons8-apple-logo-32.png",
+        link: "https://music.apple.com/us/artist/charlie-palm/1819083240",
       },
       {
-        src: '../../assets/images/icons8-youtube-logo-32.png',
-        link: 'https://www.youtube.com/channel/UC-T8b7k1hYf2RVjaJa77RwA',
+        src: "../../assets/images/icons8-youtube-logo-32.png",
+        link: "https://youtube.com/channel/UC7cgwHVOv0jUoWDLZwdojtw?si=L_0jFxJU2P7BUNLe",
       },
     ];
   }
