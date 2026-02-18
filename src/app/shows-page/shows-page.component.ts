@@ -5,9 +5,10 @@ import { Observable } from 'rxjs';
 import { Store } from 'src/assets/data/store';
 
 @Component({
-  selector: 'app-shows-page',
-  templateUrl: './shows-page.component.html',
-  styleUrls: ['./shows-page.component.scss']
+    selector: 'app-shows-page',
+    templateUrl: './shows-page.component.html',
+    styleUrls: ['./shows-page.component.scss'],
+    standalone: false
 })
 export class ShowsPageComponent {
   @Output() back: EventEmitter<State> = new EventEmitter<State>();

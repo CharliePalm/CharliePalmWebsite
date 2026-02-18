@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-social-links',
-  templateUrl: './social-links.component.html',
-  styleUrls: ['./social-links.component.scss']
+    selector: 'app-social-links',
+    templateUrl: './social-links.component.html',
+    styleUrls: ['./social-links.component.scss'],
+    standalone: false
 })
 export class SocialLinksComponent implements OnInit {
   public images: any[] = [];

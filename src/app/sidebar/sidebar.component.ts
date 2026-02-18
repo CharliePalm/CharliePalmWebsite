@@ -12,9 +12,10 @@ import { Router } from "@angular/router";
 import { timer } from "rxjs";
 
 @Component({
-  selector: "app-sidebar",
-  templateUrl: "./sidebar.component.html",
-  styleUrls: ["./sidebar.component.scss"],
+    selector: "app-sidebar",
+    templateUrl: "./sidebar.component.html",
+    styleUrls: ["./sidebar.component.scss"],
+    standalone: false
 })
 export class SidebarComponent {
   expanded = false;

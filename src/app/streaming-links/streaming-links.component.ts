@@ -1,9 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: "app-streaming-links",
-  templateUrl: "./streaming-links.component.html",
-  styleUrls: ["./streaming-links.component.css"],
+    selector: "app-streaming-links",
+    templateUrl: "./streaming-links.component.html",
+    styleUrls: ["./streaming-links.component.css"],
+    standalone: false
 })
 export class StreamingLinksComponent implements OnInit {
   public images: any[] = [];

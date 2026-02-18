@@ -7,9 +7,10 @@ import { getS3PathFromImage } from 'src/assets/data/api.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-bio-page',
-  templateUrl: './bio-page.component.html',
-  styleUrls: ['./bio-page.component.scss']
+    selector: 'app-bio-page',
+    templateUrl: './bio-page.component.html',
+    styleUrls: ['./bio-page.component.scss'],
+    standalone: false
 })
 
 export class BioPageComponent {

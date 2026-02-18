@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 @Component({
-  selector: 'app-title-page',
-  templateUrl: './title-page.component.html',
-  styleUrls: ['./title-page.component.scss'],
+    selector: 'app-title-page',
+    templateUrl: './title-page.component.html',
+    styleUrls: ['./title-page.component.scss'],
+    standalone: false
 })
 export class TitlePageComponent {
   constructor() {}
