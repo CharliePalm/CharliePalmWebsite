@@ -10,7 +10,11 @@ import { BioPageComponent } from "./bio-page/bio-page.component";
 import { ShowsPageComponent } from "./shows-page/shows-page.component";
 import { ContactPageComponent } from "./contact-page/contact-page.component";
 import { SidebarComponent } from "./sidebar/sidebar.component";
-import { HttpClient, HttpClientModule } from "@angular/common/http";
+import {
+  HttpClient,
+  provideHttpClient,
+  withInterceptorsFromDi,
+} from "@angular/common/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { LoaderComponent } from "./loader/loader.component";
 
@@ -26,13 +30,8 @@ import { LoaderComponent } from "./loader/loader.component";
     StreamingLinksComponent,
     LoaderComponent,
   ],
-  imports: [
-    HttpClientModule,
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-  ],
-  providers: [HttpClient],
   bootstrap: [AppComponent],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
+  providers: [HttpClient, provideHttpClient(withInterceptorsFromDi())],
 })
 export class AppModule {}
